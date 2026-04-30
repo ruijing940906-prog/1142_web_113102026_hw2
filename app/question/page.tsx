@@ -72,6 +72,7 @@ export default function Question() {
   function nextQuestion(optionIndex:any){
     
     console.log("使用者選擇:"+optionIndex)
+    
     if( questionIndex!= questionData.length-1){
     
     console.log("下一題")

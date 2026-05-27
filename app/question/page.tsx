@@ -58,8 +58,14 @@ export default function QuestionPage() {
           <div className="question-panel">
             <div>
               <p className="question-number">Q{questionIndex + 1}</p>
-              <h1 className="question-title">{currentQuestion.question}</h1>
-              <p className="question-hint">{currentQuestion.hint}</p>
+              <h1 className="question-title">
+  {currentQuestion.question.split("\n").map((line: string, index: number) => (
+    <span key={index}>
+      {line}
+      <br />
+    </span>
+  ))}
+</h1>
             </div>
 
             <div className="bowl-illustration">

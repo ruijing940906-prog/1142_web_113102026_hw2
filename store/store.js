@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const questionData = [
   {
-    question: "當身邊的人瘋狂倒苦水／塞訊息給你時，你的麵糰會？",
+    question: "當身邊的人瘋狂倒苦水／塞訊息給你時，\n你的麵糰會？",
     hint: "這題在測你面對他人情緒時，會如何吸收、消化或保護自己。",
     options: [
       {
@@ -24,7 +24,7 @@ const questionData = [
     ],
   },
   {
-    question: "如果今天的你被放進烤箱，你覺得自己最像哪種狀態？",
+    question: "如果今天的你被放進烤箱，\n你覺得自己最像哪種狀態？",
     hint: "這題在看你平常面對壓力時，是膨脹、焦掉，還是穩穩成形。",
     options: [
       {
@@ -46,7 +46,7 @@ const questionData = [
     ],
   },
   {
-    question: "朋友突然取消約定時，你的內心第一反應是？",
+    question: "朋友突然取消約定時，\n你的內心第一反應是？",
     hint: "這題在測你對人際變動的敏感度。",
     options: [
       {
@@ -68,7 +68,7 @@ const questionData = [
     ],
   },
   {
-    question: "當你收到一句稱讚時，你通常會怎麼反應？",
+    question: "當你收到一句稱讚時，\n你通常會怎麼反應？",
     hint: "這題在看你對肯定的接受程度。",
     options: [
       {
@@ -90,7 +90,7 @@ const questionData = [
     ],
   },
   {
-    question: "如果你的心是一份麵糰，你最怕它發生什麼事？",
+    question: "如果你的心是一份麵糰，\n你最怕它發生什麼事？",
     hint: "這題在測你最核心的不安來源。",
     options: [
       {
@@ -112,7 +112,7 @@ const questionData = [
     ],
   },
   {
-    question: "你希望今天的心靈麵包店，最後送你一句什麼話？",
+    question: "你希望今天的心靈麵包店，\n最後送你一句什麼話？",
     hint: "這題在看你現在最需要的情緒補給。",
     options: [
       {

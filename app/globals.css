@@ -3,10 +3,9 @@
     --card: #FFF9EE;
     --caramel: #5C3A21;
     --soft-brown: #A66A3F;
-    --butter: #F6D77A;
-    --mint: #CDE8D5;
-    --orange: #F8CFA6;
-    --lavender: #D8C7F2;
+    --butter: #D9B982;
+    --button-light: #F4E7D3;
+    --button-hover: #EAD6BA;
     --pink: #F8DDE6;
     --light-brown: #EFE3D2;
     --shadow: rgba(92, 58, 33, 0.12);
@@ -65,6 +64,57 @@
   }
   
   /* =========================
+     Unified Buttons
+  ========================= */
+  
+  .start-button,
+  .option-button,
+  .save-button,
+  .restart-button {
+    border: 2px solid rgba(92, 58, 33, 0.14);
+    border-radius: 999px;
+    color: var(--caramel);
+    font-weight: 900;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(92, 58, 33, 0.08);
+    transition: 0.22s ease;
+  }
+  
+  .start-button:hover,
+  .option-button:hover,
+  .save-button:hover,
+  .restart-button:hover {
+    transform: translateY(-2px) scale(1.01);
+    border-color: rgba(92, 58, 33, 0.24);
+    box-shadow: 0 12px 24px rgba(92, 58, 33, 0.12);
+  }
+  
+  .start-button,
+  .save-button {
+    padding: 13px 24px;
+    background: var(--butter);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .restart-button {
+    padding: 13px 24px;
+    background: var(--button-light);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .start-button:hover,
+  .save-button:hover {
+    background: #CFA86A;
+  }
+  
+  .restart-button:hover,
+  .option-button:hover {
+    background: var(--button-hover);
+  }
+  
+  /* =========================
      Entrance Page
   ========================= */
   
@@ -76,8 +126,8 @@
     justify-content: center;
     overflow: hidden;
     background:
-      radial-gradient(circle at top left, rgba(246, 215, 122, 0.28), transparent 32%),
-      radial-gradient(circle at bottom right, rgba(248, 221, 230, 0.5), transparent 36%),
+      radial-gradient(circle at top left, rgba(217, 185, 130, 0.25), transparent 32%),
+      radial-gradient(circle at bottom right, rgba(248, 221, 230, 0.45), transparent 36%),
       var(--cream);
   }
   
@@ -150,8 +200,8 @@
     height: 42px;
     background: repeating-linear-gradient(
       90deg,
-      var(--butter) 0 28px,
-      var(--orange) 28px 56px
+      #F2D58A 0 28px,
+      #E9C49B 28px 56px
     );
     border-bottom: 6px solid var(--caramel);
   }
@@ -190,21 +240,6 @@
     transform: rotate(28deg);
   }
   
-  .start-button {
-    padding: 14px 26px;
-    border-radius: 999px;
-    background: var(--butter);
-    color: var(--caramel);
-    font-size: 0.92rem;
-    font-weight: 900;
-    box-shadow: 0 10px 24px rgba(92, 58, 33, 0.14);
-    transition: 0.22s ease;
-  }
-  
-  .start-button:hover {
-    transform: translateY(-2px) scale(1.02);
-  }
-  
   /* =========================
      Question Page
   ========================= */
@@ -217,12 +252,11 @@
     justify-content: center;
     overflow: hidden;
     background:
-      radial-gradient(circle at 18% 20%, rgba(246, 215, 122, 0.24), transparent 30%),
-      radial-gradient(circle at 82% 80%, rgba(248, 221, 230, 0.45), transparent 36%),
+      radial-gradient(circle at 18% 20%, rgba(217, 185, 130, 0.2), transparent 30%),
+      radial-gradient(circle at 82% 80%, rgba(248, 221, 230, 0.36), transparent 36%),
       var(--cream);
   }
   
-  /* 這個就是你要的「長方框範圍」：沒有深色框 */
   .quiz-wrapper {
     width: min(500px, 100%);
     height: min(720px, calc(100vh - 32px));
@@ -233,18 +267,6 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-  }
-  
-  .quiz-wrapper::before {
-    content: "✦ 今日靈魂烘焙中 ✦";
-    display: block;
-    text-align: center;
-    color: var(--soft-brown);
-    font-size: 0.74rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
-    flex-shrink: 0;
   }
   
   .progress-area {
@@ -274,7 +296,7 @@
   .progress-fill {
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(90deg, var(--butter), var(--orange));
+    background: linear-gradient(90deg, #D9B982, #CFA86A);
     transition: width 0.35s ease;
   }
   
@@ -300,18 +322,20 @@
     margin-bottom: 8px;
     padding: 4px 10px;
     border-radius: 999px;
-    background: var(--pink);
+    background: #F4E7D3;
     color: var(--soft-brown);
     font-size: 0.72rem;
     font-weight: 900;
   }
   
   .question-title {
-    color: var(--caramel);
-    font-size: clamp(1rem, 2.8vw, 1.25rem);
-    font-weight: 900;
-    line-height: 1.4;
-  }
+  color: var(--caramel);
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-weight: 900;
+  line-height: 1.45;
+  text-align: center;
+  white-space: normal;
+}
   
   .question-hint {
     margin-top: 8px;
@@ -321,6 +345,7 @@
     line-height: 1.5;
   }
   
+  /* 目前先保留碗，之後可改成麵團發酵動畫 */
   .bowl-illustration {
     height: 86px;
     position: relative;
@@ -334,8 +359,8 @@
     width: 12px;
     height: 26px;
     border-radius: 50% 50% 60% 60%;
-    background: #9FD7E5;
-    opacity: 0.9;
+    background: #D9B982;
+    opacity: 0.7;
     transform: rotate(18deg);
     animation: drop 1.6s infinite ease-in-out;
   }
@@ -369,7 +394,7 @@
     border: 4px solid var(--caramel);
     border-top: none;
     border-radius: 0 0 70px 70px;
-    background: rgba(159, 215, 229, 0.28);
+    background: rgba(244, 231, 211, 0.8);
   }
   
   .bowl::before {
@@ -382,52 +407,26 @@
     transform: translateX(-50%);
     border: 4px solid var(--caramel);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.62);
+    background: rgba(255, 255, 255, 0.72);
   }
   
+  /* 選項：改成固定 gap，不再 space-between */
   .options-panel {
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 8px;
+    justify-content: flex-start;
+    gap: 10px;
   }
   
   .option-button {
     width: 100%;
-    min-height: 54px;
+    min-height: 50px;
     padding: 9px 14px;
-    border: 2px solid transparent;
-    border-radius: 999px;
-    color: var(--caramel);
+    background: var(--button-light);
     font-size: 0.78rem;
-    font-weight: 900;
     line-height: 1.35;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(92, 58, 33, 0.08);
-    transition: 0.22s ease;
-  }
-  
-  .option-button:hover {
-    transform: translateY(-2px) scale(1.01);
-    border-color: rgba(92, 58, 33, 0.22);
-  }
-  
-  .option-button:nth-child(1) {
-    background: var(--mint);
-  }
-  
-  .option-button:nth-child(2) {
-    background: var(--orange);
-  }
-  
-  .option-button:nth-child(3) {
-    background: var(--lavender);
-  }
-  
-  .option-button:nth-child(4) {
-    background: var(--pink);
   }
   
   /* =========================
@@ -443,8 +442,8 @@
     flex-direction: column;
     overflow: hidden;
     background:
-      radial-gradient(circle at top right, rgba(246, 215, 122, 0.28), transparent 32%),
-      radial-gradient(circle at bottom left, rgba(216, 199, 242, 0.26), transparent 36%),
+      radial-gradient(circle at top right, rgba(217, 185, 130, 0.22), transparent 32%),
+      radial-gradient(circle at bottom left, rgba(248, 221, 230, 0.3), transparent 36%),
       var(--cream);
     gap: 14px;
   }
@@ -454,7 +453,7 @@
     height: min(620px, calc(100vh - 84px));
     padding: 28px;
     border-radius: 34px;
-    background: var(--pink);
+    background: #F6E7D5;
     display: flex;
     align-items: center;
     gap: 28px;
@@ -605,27 +604,6 @@
     flex-wrap: wrap;
   }
   
-  .save-button,
-  .restart-button {
-    padding: 12px 20px;
-    border-radius: 999px;
-    background: var(--butter);
-    color: var(--caramel);
-    font-size: 0.86rem;
-    font-weight: 900;
-    transition: 0.22s ease;
-  }
-  
-  .restart-button {
-    background: #FFF7E8;
-    box-shadow: 0 8px 20px rgba(92, 58, 33, 0.1);
-  }
-  
-  .save-button:hover,
-  .restart-button:hover {
-    transform: translateY(-2px) scale(1.02);
-  }
-  
   .palette {
     display: flex;
     align-items: center;
@@ -688,7 +666,7 @@
     .quiz-wrapper {
       width: 100%;
       height: calc(100vh - 20px);
-      padding: 18px 15px;
+      padding: 16px 14px;
       border-radius: 26px;
     }
   
@@ -721,18 +699,11 @@
       height: 40px;
     }
   
-    .start-button {
-      padding: 12px 20px;
-      font-size: 0.84rem;
-    }
-  
-    .quiz-wrapper {
-      padding: 16px 14px;
-    }
-  
-    .quiz-wrapper::before {
-      font-size: 0.68rem;
-      margin-bottom: 8px;
+    .start-button,
+    .save-button,
+    .restart-button {
+      padding: 11px 18px;
+      font-size: 0.8rem;
     }
   
     .progress-area {
@@ -763,9 +734,10 @@
     }
   
     .question-title {
-      font-size: 0.96rem;
-      line-height: 1.36;
-    }
+        font-size: 0.96rem;
+        line-height: 1.45;
+        text-align: center;
+      }
   
     .question-hint {
       font-size: 0.68rem;
@@ -803,12 +775,13 @@
     }
   
     .options-panel {
+      justify-content: flex-start;
       gap: 7px;
     }
   
     .option-button {
-      min-height: 48px;
-      padding: 8px 11px;
+      min-height: 45px;
+      padding: 7px 11px;
       font-size: 0.7rem;
       line-height: 1.28;
     }
@@ -872,12 +845,6 @@
       font-size: 0.68rem;
       line-height: 1.35;
       padding-left: 16px;
-    }
-  
-    .save-button,
-    .restart-button {
-      padding: 10px 14px;
-      font-size: 0.74rem;
     }
   
     .color-block {

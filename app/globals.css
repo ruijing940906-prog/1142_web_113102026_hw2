@@ -1,13 +1,13 @@
 :root {
     --cream: #FDFBF7;
-    --card: #FFF9EE;
+    --shell: #FFFCF6;
+    --card: #FFF8EA;
+    --result-yellow: #FFF1C8;
     --caramel: #5C3A21;
     --soft-brown: #A66A3F;
-    --butter: #D9B982;
+    --butter: #F6D77A;
     --button-light: #F4E7D3;
     --button-hover: #EAD6BA;
-    --pink: #F8DDE6;
-    --light-brown: #EFE3D2;
     --shadow: rgba(92, 58, 33, 0.12);
   }
   
@@ -23,7 +23,7 @@
     height: 100%;
     background: var(--cream);
     color: var(--caramel);
-    font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
   }
   
   body {
@@ -32,601 +32,601 @@
   
   button {
     font-family: inherit;
-    border: none;
     cursor: pointer;
+    border: none;
   }
   
   /* =========================
-     Common
+     Unified App Layout
   ========================= */
   
-  .small-label {
-    color: var(--soft-brown);
-    font-size: 0.8rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
+  .entrance-page,
+  .quiz-page,
+  .loading-page,
+  .result-page {
+    width: 100%;
+    height: 100vh;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+      radial-gradient(circle at 16% 22%, rgba(246, 215, 122, 0.18), transparent 30%),
+      radial-gradient(circle at 84% 78%, rgba(248, 221, 230, 0.24), transparent 36%),
+      var(--cream);
+    overflow: hidden;
+  }
+  
+  .app-shell,
+  .entrance-container,
+  .loading-card {
+    width: min(760px, 100%);
+    height: min(680px, calc(100vh - 48px));
+    padding: 34px;
+    border-radius: 38px;
+    background: rgba(255, 252, 246, 0.96);
+    box-shadow: 0 24px 60px rgba(92, 58, 33, 0.12);
+    overflow: hidden;
+  }
+  
+  /* =========================
+     Buttons
+  ========================= */
+  
+  .main-button,
+  .sub-button,
+  .option-button,
+  .back-button {
+    border-radius: 30px;
+    border: 1.5px solid rgba(92, 58, 33, 0.16);
+    color: var(--caramel);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: 0.3s ease;
+  }
+  
+  .main-button {
+    padding: 14px 28px;
+    background: var(--butter);
+    font-size: 0.95rem;
+    box-shadow: 0 8px 18px rgba(92, 58, 33, 0.08);
+  }
+  
+  .main-button:hover {
+    transform: scale(1.05);
+    background: #EFCB62;
+  }
+  
+  .sub-button,
+  .back-button {
+    padding: 11px 20px;
+    background: var(--button-light);
+    font-size: 0.84rem;
+  }
+  
+  .sub-button:hover,
+  .back-button:hover:not(:disabled),
+  .option-button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+  }
+  
+  .back-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  
+  /* =========================
+     Entrance
+  ========================= */
+  
+  .entrance-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    text-align: center;
   }
   
   .main-title {
     color: var(--caramel);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 900;
-    line-height: 1.15;
-    letter-spacing: 0.03em;
-  }
-  
-  .subtitle {
-    max-width: 390px;
-    color: var(--soft-brown);
-    font-size: 0.88rem;
-    font-weight: 700;
-    line-height: 1.65;
-  }
-  
-  /* =========================
-     Unified Buttons
-  ========================= */
-  
-  .start-button,
-  .option-button,
-  .save-button,
-  .restart-button {
-    border: 2px solid rgba(92, 58, 33, 0.14);
-    border-radius: 999px;
-    color: var(--caramel);
-    font-weight: 900;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(92, 58, 33, 0.08);
-    transition: 0.22s ease;
-  }
-  
-  .start-button:hover,
-  .option-button:hover,
-  .save-button:hover,
-  .restart-button:hover {
-    transform: translateY(-2px) scale(1.01);
-    border-color: rgba(92, 58, 33, 0.24);
-    box-shadow: 0 12px 24px rgba(92, 58, 33, 0.12);
-  }
-  
-  .start-button,
-  .save-button {
-    padding: 13px 24px;
-    background: var(--butter);
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-  
-  .restart-button {
-    padding: 13px 24px;
-    background: var(--button-light);
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-  
-  .start-button:hover,
-  .save-button:hover {
-    background: #CFA86A;
-  }
-  
-  .restart-button:hover,
-  .option-button:hover {
-    background: var(--button-hover);
-  }
-  
-  /* =========================
-     Entrance Page
-  ========================= */
-  
-  .entrance-page {
-    height: 100vh;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at top left, rgba(217, 185, 130, 0.25), transparent 32%),
-      radial-gradient(circle at bottom right, rgba(248, 221, 230, 0.45), transparent 36%),
-      var(--cream);
-  }
-  
-  .entrance-container {
-    width: min(480px, 100%);
-    height: min(700px, calc(100vh - 40px));
-    padding: 30px 28px;
-    border-radius: 34px;
-    background: rgba(255, 252, 246, 0.94);
-    box-shadow: 0 24px 60px rgba(92, 58, 33, 0.14);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    text-align: center;
-    overflow: hidden;
-  }
-  
-  .entrance-container::before {
-    content: "✦ Welcome to Internal Bakery ✦";
-    color: var(--soft-brown);
-    font-size: 0.76rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
   }
   
   .bakery-window {
-    width: 210px;
-    height: 180px;
+    width: 230px;
+    height: 205px;
     position: relative;
-    overflow: hidden;
-    background: #FFF7E8;
     border: 6px solid var(--caramel);
-    border-radius: 30px 30px 24px 24px;
+    border-radius: 34px;
+    background: #FFF7E8;
+    overflow: hidden;
     box-shadow: 0 16px 34px var(--shadow);
-    flex-shrink: 0;
   }
   
-  .bakery-window::before,
-  .bakery-window::after {
-    content: "";
+  .window-grid {
     position: absolute;
-    z-index: 1;
     background: var(--caramel);
+    opacity: 0.9;
   }
   
-  .bakery-window::before {
+  .window-grid.vertical {
     width: 6px;
     height: 100%;
-    top: 0;
     left: 50%;
     transform: translateX(-50%);
   }
   
-  .bakery-window::after {
+  .window-grid.horizontal {
     width: 100%;
     height: 6px;
     top: 50%;
-    left: 0;
     transform: translateY(-50%);
   }
   
-  .awning {
+  .flat-croissant {
     position: absolute;
     z-index: 3;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 42px;
-    background: repeating-linear-gradient(
-      90deg,
-      #F2D58A 0 28px,
-      #E9C49B 28px 56px
-    );
-    border-bottom: 6px solid var(--caramel);
-  }
-  
-  .croissant {
-    position: absolute;
-    z-index: 4;
     left: 50%;
-    top: 60%;
-    width: 86px;
-    height: 48px;
+    top: 62%;
+    width: 100px;
+    height: 56px;
     transform: translate(-50%, -50%);
-    background: #D98C32;
+    background: #D9913D;
     border-radius: 70px 70px 28px 28px;
     box-shadow: inset 0 -7px 0 rgba(92, 58, 33, 0.16);
   }
   
-  .croissant::before,
-  .croissant::after {
+  .flat-croissant::before,
+  .flat-croissant::after {
     content: "";
     position: absolute;
-    top: 11px;
-    width: 38px;
-    height: 34px;
+    top: 12px;
+    width: 42px;
+    height: 38px;
     background: #F1B45D;
     border-radius: 50%;
   }
   
-  .croissant::before {
-    left: -14px;
-    transform: rotate(-28deg);
+  .flat-croissant::before {
+    left: -15px;
+    transform: rotate(-26deg);
   }
   
-  .croissant::after {
-    right: -14px;
-    transform: rotate(28deg);
+  .flat-croissant::after {
+    right: -15px;
+    transform: rotate(26deg);
   }
   
   /* =========================
      Question Page
   ========================= */
   
-  .quiz-page {
-    height: 100vh;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at 18% 20%, rgba(217, 185, 130, 0.2), transparent 30%),
-      radial-gradient(circle at 82% 80%, rgba(248, 221, 230, 0.36), transparent 36%),
-      var(--cream);
-  }
-  
-  .quiz-wrapper {
-    width: min(500px, 100%);
-    height: min(720px, calc(100vh - 32px));
-    padding: 22px 26px;
-    border-radius: 34px;
-    background: rgba(255, 252, 246, 0.94);
-    box-shadow: 0 24px 60px rgba(92, 58, 33, 0.14);
-    overflow: hidden;
+  .quiz-page .app-shell {
     display: flex;
     flex-direction: column;
   }
   
   .progress-area {
-    width: 100%;
-    margin-bottom: 14px;
     flex-shrink: 0;
+    margin-bottom: 18px;
   }
   
   .progress-text {
     display: flex;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
     color: var(--soft-brown);
-    font-size: 0.78rem;
-    font-weight: 900;
+    font-size: 0.86rem;
+    font-weight: 700;
   }
   
   .progress-bar {
-    width: 100%;
     height: 10px;
-    overflow: hidden;
     border-radius: 999px;
-    background: var(--light-brown);
+    overflow: hidden;
+    background: #EFE3D2;
   }
   
   .progress-fill {
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(90deg, #D9B982, #CFA86A);
+    background: linear-gradient(90deg, #F6D77A, #D9B982);
     transition: width 0.35s ease;
   }
   
-  .quiz-layout {
+  .quiz-content {
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 18px;
   }
   
-  .question-panel {
-    padding: 18px 20px 14px;
-    border-radius: 26px;
+  .question-card {
+    flex-shrink: 0;
+    min-height: 210px;
+    padding: 28px 26px;
+    border-radius: 30px;
     background: var(--card);
     box-shadow: 0 12px 26px rgba(92, 58, 33, 0.08);
-    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
   }
   
   .question-number {
-    display: inline-block;
-    width: fit-content;
-    margin-bottom: 8px;
-    padding: 4px 10px;
+    padding: 5px 14px;
     border-radius: 999px;
-    background: #F4E7D3;
+    background: var(--button-light);
     color: var(--soft-brown);
-    font-size: 0.72rem;
-    font-weight: 900;
+    font-size: 0.82rem;
+    font-weight: 700;
   }
   
   .question-title {
-  color: var(--caramel);
-  font-size: clamp(1rem, 2.8vw, 1.25rem);
-  font-weight: 900;
-  line-height: 1.45;
-  text-align: center;
-  white-space: normal;
-}
-  
-  .question-hint {
-    margin-top: 8px;
-    color: var(--soft-brown);
-    font-size: 0.74rem;
-    font-weight: 700;
-    line-height: 1.5;
+    color: var(--caramel);
+    font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.55;
+    text-align: center;
+    letter-spacing: 0.01em;
   }
   
-  /* 目前先保留碗，之後可改成麵團發酵動畫 */
-  .bowl-illustration {
-    height: 86px;
-    position: relative;
-    margin-top: 6px;
-  }
-  
-  .water-drop {
-    position: absolute;
-    top: 0;
-    left: 52%;
-    width: 12px;
-    height: 26px;
-    border-radius: 50% 50% 60% 60%;
-    background: #D9B982;
-    opacity: 0.7;
-    transform: rotate(18deg);
-    animation: drop 1.6s infinite ease-in-out;
-  }
-  
-  .water-drop.small {
-    top: 18px;
-    left: 43%;
-    width: 8px;
-    height: 16px;
-    animation-delay: 0.35s;
-  }
-  
-  @keyframes drop {
-    0%,
-    100% {
-      transform: translateY(0) rotate(18deg);
-    }
-  
-    50% {
-      transform: translateY(10px) rotate(18deg);
-    }
-  }
-  
-  .bowl {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 120px;
-    height: 54px;
-    transform: translateX(-50%);
-    border: 4px solid var(--caramel);
-    border-top: none;
-    border-radius: 0 0 70px 70px;
-    background: rgba(244, 231, 211, 0.8);
-  }
-  
-  .bowl::before {
-    content: "";
-    position: absolute;
-    top: -11px;
-    left: 50%;
-    width: 132px;
-    height: 21px;
-    transform: translateX(-50%);
-    border: 4px solid var(--caramel);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.72);
-  }
-  
-  /* 選項：改成固定 gap，不再 space-between */
-  .options-panel {
+  .option-side {
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: center;
+    gap: 11px;
   }
   
   .option-button {
     width: 100%;
-    min-height: 50px;
-    padding: 9px 14px;
+    min-height: 66px;
+    padding: 13px 18px;
     background: var(--button-light);
-    font-size: 0.78rem;
-    line-height: 1.35;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .option-label {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #D9B982;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  
+  .option-text {
+    flex: 1;
+  }
+  
+  .quiz-nav {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
   }
   
   /* =========================
-     Result Page
+     Loading
   ========================= */
   
-  .result-page {
-    height: 100vh;
-    padding: 16px;
+  .loading-card {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at top right, rgba(217, 185, 130, 0.22), transparent 32%),
-      radial-gradient(circle at bottom left, rgba(248, 221, 230, 0.3), transparent 36%),
-      var(--cream);
-    gap: 14px;
+    gap: 30px;
+    position: relative;
   }
   
-  .result-card {
-    width: min(720px, 100%);
-    height: min(620px, calc(100vh - 84px));
-    padding: 28px;
+  .aroma {
+    position: absolute;
+    width: 12px;
+    height: 44px;
+    border-radius: 999px;
+    background: rgba(217, 185, 130, 0.45);
+    filter: blur(1px);
+    animation: aromaFloat 2s infinite ease-in-out;
+  }
+  
+  .aroma-one {
+    top: 120px;
+    left: 38%;
+  }
+  
+  .aroma-two {
+    top: 95px;
+    left: 50%;
+    animation-delay: 0.35s;
+  }
+  
+  .aroma-three {
+    top: 125px;
+    left: 62%;
+    animation-delay: 0.7s;
+  }
+  
+  @keyframes aromaFloat {
+    0%,
+    100% {
+      transform: translateY(0) scaleY(1);
+      opacity: 0.25;
+    }
+  
+    50% {
+      transform: translateY(-18px) scaleY(1.15);
+      opacity: 0.8;
+    }
+  }
+  
+  .oven {
+    width: 230px;
+    height: 180px;
     border-radius: 34px;
-    background: #F6E7D5;
+    background: #EAD6BA;
+    border: 4px solid rgba(92, 58, 33, 0.25);
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 28px;
-    filter: drop-shadow(0 18px 36px rgba(92, 58, 33, 0.14));
+    box-shadow: inset 0 -10px 0 rgba(92, 58, 33, 0.06);
+  }
+  
+  .oven-window {
+    width: 155px;
+    height: 100px;
+    margin-top: 22px;
+    border-radius: 24px;
+    border: 3px solid rgba(92, 58, 33, 0.25);
+    background: rgba(255, 248, 220, 0.48);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: ovenGlow 1.5s infinite ease-in-out;
+  }
+  
+  .loading-dough {
+    width: 76px;
+    height: 42px;
+    border-radius: 999px 999px 28px 28px;
+    background: #D9B982;
+    animation: doughFloat 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes doughFloat {
+    0%,
+    100% {
+      transform: translateY(4px) scale(1);
+    }
+  
+    50% {
+      transform: translateY(-6px) scale(1.12, 1.18);
+    }
+  }
+  
+  @keyframes ovenGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 rgba(246, 215, 122, 0);
+    }
+  
+    50% {
+      box-shadow: 0 0 30px rgba(246, 215, 122, 0.58);
+    }
+  }
+  
+  .typing-text {
+    width: 17em;
     overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--caramel);
+    color: var(--caramel);
+    font-size: 1rem;
+    font-weight: 700;
+    animation:
+      typing 2s steps(17),
+      caret 0.7s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+  
+  @keyframes caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  /* =========================
+     Result
+  ========================= */
+  
+  .result-card {
+    background: var(--result-yellow) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .result-content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto 1fr auto;
+    column-gap: 34px;
+    row-gap: 16px;
+  }
+  
+  .result-label {
+    grid-column: 1 / -1;
+    width: fit-content;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255, 252, 246, 0.72);
+    font-size: 0.78rem;
+    font-weight: 700;
   }
   
   .result-visual {
-    position: relative;
-    flex: 0 0 220px;
-    height: 220px;
-    overflow: hidden;
-    border-radius: 28px;
-    background: #FFF7E8;
+    grid-row: 2 / 4;
+    width: 260px;
+    height: 260px;
+    border-radius: 34px;
+    background: rgba(255, 252, 246, 0.62);
     display: flex;
-    align-items: center;
     justify-content: center;
-  }
-  
-  .result-bread {
+    align-items: center;
     position: relative;
-    width: 130px;
-    height: 72px;
-    border-radius: 90px 90px 36px 36px;
-    background: #3A2418;
-    box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .result-bread::before,
-  .result-bread::after {
-    content: "";
-    position: absolute;
-    top: 18px;
-    width: 52px;
-    height: 50px;
-    border-radius: 50%;
-    background: #4A2C1E;
-  }
-  
-  .result-bread::before {
-    left: -22px;
-    transform: rotate(-24deg);
-  }
-  
-  .result-bread::after {
-    right: -22px;
-    transform: rotate(24deg);
   }
   
   .sparkle {
     position: absolute;
-    color: var(--butter);
-    font-size: 1.6rem;
+    color: #D9B982;
+    font-size: 1.8rem;
     animation: sparkle 1.8s infinite ease-in-out;
   }
   
   .sparkle.one {
-    top: 38px;
+    top: 40px;
     left: 42px;
   }
   
   .sparkle.two {
     top: 62px;
-    right: 40px;
-    animation-delay: 0.4s;
+    right: 45px;
+    animation-delay: 0.35s;
   }
   
   .sparkle.three {
-    right: 52px;
-    bottom: 46px;
+    right: 58px;
+    bottom: 44px;
     animation-delay: 0.7s;
   }
   
   @keyframes sparkle {
-    0%,
-    100% {
-      opacity: 0.7;
-      transform: scale(1) rotate(0deg);
-    }
-  
     50% {
-      opacity: 1;
       transform: scale(1.25) rotate(12deg);
+      opacity: 1;
     }
   }
   
-  .result-content {
-    flex: 1;
-    min-width: 0;
+  .bread-sticker {
+    width: 170px;
+    height: 130px;
+    filter: drop-shadow(0 14px 18px rgba(92, 58, 33, 0.18));
+    position: relative;
   }
   
-  .result-label {
-    display: inline-block;
-    margin-bottom: 12px;
-    padding: 6px 13px;
-    border-radius: 999px;
-    background: var(--butter);
-    color: var(--caramel);
-    font-size: 0.78rem;
-    font-weight: 900;
+  .bread-core {
+    position: absolute;
+    inset: 30px 20px;
+    border-radius: 80px 80px 36px 36px;
+    background: #D9B982;
+  }
+  
+  .bread-choco .bread-core {
+    background: #3A2418;
+  }
+  
+  .bread-mochi .bread-core {
+    background: #F3DFA8;
+    border-radius: 42px;
+  }
+  
+  .bread-puff .bread-core {
+    background: #E8C27A;
+    border-radius: 50%;
+  }
+  
+  .bread-nut .bread-core {
+    background: #A98254;
+    border-radius: 28px;
   }
   
   .result-title {
-    margin-bottom: 10px;
-    color: var(--caramel);
-    font-size: clamp(1.7rem, 3.6vw, 2.7rem);
-    font-weight: 900;
-    line-height: 1.15;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
   }
   
-  .result-subtitle {
-    margin-bottom: 16px;
+  .result-tag {
     color: var(--soft-brown);
-    font-size: 0.9rem;
-    font-weight: 900;
-    line-height: 1.5;
-  }
-  
-  .result-list {
-    margin-bottom: 18px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .result-list li {
-    position: relative;
-    padding-left: 22px;
-    color: var(--caramel);
-    font-size: 0.82rem;
+    font-size: 1rem;
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   
-  .result-list li::before {
-    content: "✦";
-    position: absolute;
-    left: 0;
-    color: var(--soft-brown);
+  .result-description {
+    color: var(--caramel);
+    font-size: 0.96rem;
+    font-weight: 500;
+    line-height: 1.85;
+  }
+  
+  .color-palette {
+    margin-top: 4px;
+  }
+  
+  .palette-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .palette-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .palette-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+  
+  .palette-block {
+    width: 22px;
+    height: 22px;
+    border-radius: 8px;
+    border: 1px solid rgba(92, 58, 33, 0.14);
+  }
+  
+  .palette-item small {
+    opacity: 0.7;
   }
   
   .result-bottom {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
-  }
-  
-  .palette {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-  
-  .color-block {
-    width: 26px;
-    height: 26px;
-    border: 2px solid rgba(92, 58, 33, 0.12);
-    border-radius: 9px;
-  }
-  
-  .color-block.caramel {
-    background: var(--caramel);
-  }
-  
-  .color-block.cream {
-    background: var(--cream);
-  }
-  
-  .color-block.butter {
-    background: var(--butter);
   }
   
   /* =========================
@@ -634,221 +634,797 @@
   ========================= */
   
   @media (max-width: 860px) {
-    .result-card {
-      width: min(500px, 100%);
-      height: min(720px, calc(100vh - 70px));
-      flex-direction: column;
-      padding: 24px 22px;
-      gap: 16px;
-    }
-  
-    .result-visual {
-      flex: 0 0 145px;
-      width: 100%;
-      height: 145px;
-    }
-  
-    .result-title {
-      font-size: 1.9rem;
-    }
-  }
-  
-  @media (max-width: 520px) {
     .entrance-page,
     .quiz-page,
+    .loading-page,
     .result-page {
-      height: 100vh;
-      padding: 10px;
-      overflow: hidden;
+      padding: 14px;
     }
   
+    .app-shell,
     .entrance-container,
-    .quiz-wrapper {
-      width: 100%;
-      height: calc(100vh - 20px);
-      padding: 16px 14px;
-      border-radius: 26px;
-    }
-  
-    .entrance-container {
-      gap: 16px;
+    .loading-card {
+      width: min(520px, 100%);
+      height: calc(100vh - 28px);
+      padding: 22px 18px;
+      border-radius: 32px;
     }
   
     .main-title {
       font-size: 2rem;
     }
   
-    .subtitle {
-      font-size: 0.78rem;
-      line-height: 1.55;
-    }
-  
     .bakery-window {
-      width: 170px;
-      height: 148px;
-      border-width: 5px;
+      width: 190px;
+      height: 170px;
     }
   
-    .awning {
-      height: 36px;
-      border-bottom-width: 5px;
-    }
-  
-    .croissant {
-      width: 72px;
-      height: 40px;
-    }
-  
-    .start-button,
-    .save-button,
-    .restart-button {
-      padding: 11px 18px;
-      font-size: 0.8rem;
-    }
-  
-    .progress-area {
-      margin-bottom: 10px;
-    }
-  
-    .progress-text {
-      font-size: 0.7rem;
-    }
-  
-    .progress-bar {
-      height: 8px;
-    }
-  
-    .quiz-layout {
-      gap: 10px;
-    }
-  
-    .question-panel {
-      padding: 14px 14px 12px;
-      border-radius: 22px;
-    }
-  
-    .question-number {
-      font-size: 0.68rem;
-      margin-bottom: 6px;
-      padding: 3px 9px;
+    .question-card {
+      min-height: 170px;
+      padding: 22px 16px;
     }
   
     .question-title {
-        font-size: 0.96rem;
-        line-height: 1.45;
-        text-align: center;
-      }
+      font-size: 1.18rem;
+      line-height: 1.55;
+    }
   
-    .question-hint {
-      font-size: 0.68rem;
+    .option-side {
+      gap: 8px;
+    }
+  
+    .option-button {
+      min-height: 54px;
+      padding: 10px 12px;
+      font-size: 0.78rem;
       line-height: 1.42;
-      margin-top: 6px;
     }
   
-    .bowl-illustration {
-      height: 70px;
-      margin-top: 4px;
+    .option-label {
+      width: 23px;
+      height: 23px;
+      font-size: 0.72rem;
     }
   
-    .water-drop {
-      width: 10px;
-      height: 20px;
+    .quiz-nav {
+      margin-top: 12px;
     }
   
-    .water-drop.small {
-      width: 7px;
-      height: 14px;
-      top: 14px;
+    .result-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
     }
   
-    .bowl {
-      width: 98px;
-      height: 44px;
-      border-width: 4px;
+    .result-visual {
+      width: 145px;
+      height: 145px;
+      flex-shrink: 0;
     }
   
-    .bowl::before {
-      width: 108px;
-      height: 18px;
-      top: -9px;
-      border-width: 4px;
+    .bread-sticker {
+      width: 115px;
+      height: 90px;
     }
   
-    .options-panel {
-      justify-content: flex-start;
+    .result-title {
+      font-size: 1.55rem;
+    }
+  
+    .result-tag,
+    .result-description {
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+  
+    .palette-row,
+    .result-bottom {
+      justify-content: center;
+    }
+  
+    .main-button,
+    .sub-button,
+    .back-button {
+      padding: 10px 16px;
+      font-size: 0.76rem;
+    }
+  }
+
+  /* =========================
+   LOCKED SINGLE-CARD LAYOUT
+   電腦與手機都維持同一種直式卡片排列
+========================= */
+
+/* 所有頁面統一置中 */
+.entrance-page,
+.quiz-page,
+.loading-page,
+.result-page {
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% 22%, rgba(246, 215, 122, 0.16), transparent 30%),
+    radial-gradient(circle at 84% 78%, rgba(248, 221, 230, 0.2), transparent 36%),
+    var(--cream);
+}
+
+/* 中央卡片固定為同一種直式寬度 */
+.app-shell,
+.entrance-container,
+.loading-card,
+.result-page .result-card {
+  width: min(640px, calc(100vw - 48px));
+  height: min(720px, calc(100vh - 48px));
+  padding: 30px 32px;
+  border-radius: 36px;
+  background: rgba(255, 252, 246, 0.96);
+  box-shadow: 0 24px 60px rgba(92, 58, 33, 0.12);
+  overflow: hidden;
+}
+
+/* 題目頁永遠維持：進度條 > 題目 > 選項 > 返回 */
+.quiz-page .app-shell {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 進度條 */
+.progress-area {
+  flex-shrink: 0;
+  margin-bottom: 18px;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: var(--soft-brown);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.progress-bar {
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #efe3d2;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f6d77a, #d9b982);
+  transition: width 0.35s ease;
+}
+
+/* 題目內容區 */
+.quiz-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* 題目卡 */
+.question-card {
+  flex-shrink: 0;
+  min-height: 185px;
+  padding: 26px 24px;
+  border-radius: 30px;
+  background: var(--card);
+  box-shadow: 0 12px 26px rgba(92, 58, 33, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.question-number {
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--button-light);
+  color: var(--soft-brown);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.question-title {
+  color: var(--caramel);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.55;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+/* 選項區固定在題目下方 */
+.option-side {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+/* 選項按鈕統一大小 */
+.option-button {
+  width: 100%;
+  min-height: 60px;
+  padding: 11px 16px;
+  border-radius: 30px;
+  background: var(--button-light);
+  color: var(--caramel);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid rgba(92, 58, 33, 0.16);
+}
+
+.option-button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+.option-label {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #d9b982;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.option-text {
+  flex: 1;
+}
+
+/* 返回按鈕固定在底部 */
+.quiz-nav {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.back-button {
+  padding: 10px 20px;
+  font-size: 0.82rem;
+}
+
+/* 結果頁也維持同一個直式卡片 */
+.result-page .result-card {
+  background: #fff1c8 !important;
+  filter: none;
+}
+
+.result-content {
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.result-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.result-content::-webkit-scrollbar-thumb {
+  background: rgba(92, 58, 33, 0.18);
+  border-radius: 999px;
+}
+
+.result-visual {
+  width: 180px;
+  height: 145px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  background: rgba(255, 252, 246, 0.62);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.result-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.result-tag {
+  color: var(--soft-brown);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.result-description {
+  max-width: 520px;
+  color: var(--caramel);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+/* 手機版：只縮小尺寸，不改排列 */
+@media (max-width: 520px) {
+  .entrance-page,
+  .quiz-page,
+  .loading-page,
+  .result-page {
+    padding: 12px;
+  }
+
+  .app-shell,
+  .entrance-container,
+  .loading-card,
+  .result-page .result-card {
+    width: calc(100vw - 24px);
+    height: calc(100vh - 24px);
+    padding: 22px 18px;
+    border-radius: 32px;
+  }
+
+  .question-card {
+    min-height: 165px;
+    padding: 22px 16px;
+  }
+
+  .question-title {
+    font-size: 1.08rem;
+    line-height: 1.5;
+  }
+
+  .option-side {
+    gap: 8px;
+  }
+
+  .option-button {
+    min-height: 52px;
+    padding: 9px 12px;
+    font-size: 0.76rem;
+    line-height: 1.38;
+  }
+
+  .option-label {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .back-button {
+    padding: 9px 16px;
+    font-size: 0.74rem;
+  }
+
+  .result-title {
+    font-size: 1.45rem;
+  }
+
+  .result-tag,
+  .result-description {
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+}
+/* =========================
+   FIX: Back Button Overlap
+   修正返回按鈕與選項重疊
+========================= */
+
+.quiz-page .app-shell {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* 題目區整體不要撐太高 */
+  .quiz-content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  /* 題目卡縮小一點，讓下方有空間 */
+  .question-card {
+    min-height: 160px;
+    max-height: 200px;
+    padding: 22px 24px;
+    flex-shrink: 0;
+  }
+  
+  /* 題目字稍微縮小，避免佔太多高度 */
+  .question-title {
+    font-size: 1.28rem;
+    line-height: 1.5;
+  }
+  
+  /* 選項區不要把所有剩餘空間硬吃滿 */
+  .option-side {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  
+  /* 選項按鈕縮小一點，四個才放得下 */
+  .option-button {
+    min-height: 54px;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  
+  /* 返回按鈕獨立佔一層，不再壓到選項 */
+  .quiz-nav {
+    flex-shrink: 0;
+    height: 42px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .back-button {
+    padding: 9px 18px;
+    font-size: 0.78rem;
+    position: static;
+  }
+  
+  /* 第一題不能返回，所以直接隱藏，不要干擾畫面 */
+  .back-button:disabled {
+    display: none;
+  }
+  
+  /* 手機版再壓縮一點 */
+  @media (max-width: 520px) {
+    .question-card {
+      min-height: 145px;
+      max-height: 180px;
+      padding: 18px 14px;
+    }
+  
+    .question-title {
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+  
+    .option-side {
       gap: 7px;
     }
   
     .option-button {
-      min-height: 45px;
-      padding: 7px 11px;
+      min-height: 48px;
+      padding: 8px 11px;
       font-size: 0.7rem;
-      line-height: 1.28;
+      line-height: 1.32;
     }
   
-    .result-card {
-      width: 100%;
-      height: calc(100vh - 66px);
-      padding: 18px 15px;
-      border-radius: 26px;
-      overflow: hidden;
+    .quiz-nav {
+      height: 38px;
+      margin-top: 8px;
     }
   
-    .result-visual {
-      flex: 0 0 110px;
-      height: 110px;
-      border-radius: 20px;
+    .back-button {
+      padding: 8px 15px;
+      font-size: 0.72rem;
+    }
+  }
+
+  /* =========================
+   FIX: Move Back Button To Top
+   返回上一題移到上方，避免壓到選項
+========================= */
+
+.progress-text {
+    align-items: center;
+  }
+  
+  .progress-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .top-back-button {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(92, 58, 33, 0.14);
+    background: var(--button-light);
+    color: var(--soft-brown);
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+  
+  .top-back-button:hover {
+    background: var(--button-hover);
+    transform: translateY(-1px);
+  }
+  
+  /* 原本底部返回區不再需要，避免殘留佔空間 */
+  .quiz-nav {
+    display: none !important;
+  }
+  
+  /* 選項區可以吃滿下方空間，但不會再被返回按鈕卡住 */
+  .option-side {
+    flex: 1;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  /* 選項稍微壓一點高度，保證四題都舒服 */
+  .option-button {
+    min-height: 56px;
+    padding: 10px 16px;
+  }
+  
+  /* 電腦版題目卡稍微穩定一點 */
+  .question-card {
+    min-height: 175px;
+    max-height: 210px;
+  }
+  
+  /* 手機版 */
+  @media (max-width: 520px) {
+    .progress-left {
+      gap: 8px;
     }
   
-    .result-bread {
-      width: 88px;
-      height: 48px;
+    .top-back-button {
+      padding: 5px 9px;
+      font-size: 0.66rem;
     }
   
-    .result-bread::before,
-    .result-bread::after {
-      width: 36px;
-      height: 36px;
-      top: 13px;
+    .option-side {
+      gap: 8px;
     }
   
-    .result-bread::before {
-      left: -15px;
+    .option-button {
+      min-height: 49px;
+      padding: 8px 11px;
     }
   
-    .result-bread::after {
-      right: -15px;
+    .question-card {
+      min-height: 150px;
+      max-height: 180px;
+    }
+  }
+
+  /* =========================
+   FIX: Keep Back Button Space
+   第一題也保留返回按鈕空間，避免高度跳動
+========================= */
+
+.progress-text {
+    min-height: 42px;
+    align-items: center;
+  }
+  
+  .progress-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+  }
+  
+  .top-back-button {
+    min-width: 116px;
+    height: 38px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(92, 58, 33, 0.14);
+    background: var(--button-light);
+    color: var(--soft-brown);
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+  
+  .top-back-button:hover:not(:disabled) {
+    background: var(--button-hover);
+    transform: translateY(-1px);
+  }
+  
+  .top-back-button.is-hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  /* 不要讓 disabled 狀態把按鈕 display:none，否則高度又會變 */
+  .top-back-button:disabled {
+    cursor: default;
+  }
+  
+  /* 如果之前有這段，這裡強制覆蓋掉 */
+  .back-button:disabled {
+    display: inline-flex;
+  }
+  
+  /* 進度條固定位置，不因返回按鈕出現而上下跳 */
+  .progress-area {
+    min-height: 68px;
+    margin-bottom: 16px;
+  }
+
+  .back-button:disabled {
+    display: inline-flex;
+  }
+
+  /* =========================
+   Cover Title Adjustment
+   封面上方小字
+========================= */
+
+.cover-kicker {
+    color: var(--soft-brown);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+  }
+  
+  .main-title {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.2;
+  }
+
+  /* =========================
+   Result Image Size Adjust
+   放大結果頁麵包圖樣
+========================= */
+
+.result-visual {
+    width: 400px;
+    height: 170px;
+  }
+  
+  .bread-sticker {
+    width: 185px;
+    height: 145px;
+  }
+  
+  .bread-core {
+    inset: 24px 12px;
+  }
+
+  /* =========================
+   Result Page Background Match
+   結果頁背景與前面頁面統一
+========================= */
+
+.result-page .result-card,
+.result-page .app-shell {
+  background: rgba(255, 252, 246, 0.96) !important;
+}
+
+.result-visual {
+  background: var(--card);
+}
+
+/* =========================
+   Loading Image Sequence
+   烤箱圖片序列動畫
+========================= */
+
+.loading-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+  
+  .loading-scene {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .oven-frame-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: ovenFloat 1.35s ease-in-out infinite;
+    filter: drop-shadow(0 14px 20px rgba(92, 58, 33, 0.14));
+  }
+  
+  @keyframes ovenFloat {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
     }
   
-    .result-label {
-      font-size: 0.68rem;
-      margin-bottom: 8px;
+    50% {
+      transform: translateY(-8px) scale(1.03);
+    }
+  }
+  
+  /* 如果你不想要打字機游標太明顯，可以保留這個 */
+  .typing-text {
+    text-align: center;
+    color: var(--caramel);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+  
+  /* 手機版縮小 */
+  @media (max-width: 520px) {
+    .loading-scene {
+      width: 220px;
+      height: 220px;
     }
   
-    .result-title {
-      font-size: 1.45rem;
-      margin-bottom: 7px;
+    .typing-text {
+      font-size: 0.86rem;
     }
+  }
+
+  /* =========================
+   Result Imported Images
+   結果頁匯入圖片
+========================= */
+
+.result-bread-image {
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 14px 18px rgba(92, 58, 33, 0.16));
+  }
   
-    .result-subtitle {
-      font-size: 0.74rem;
-      line-height: 1.35;
-      margin-bottom: 10px;
+  @media (max-width: 520px) {
+    .result-bread-image {
+      width: 155px;
+      height: 155px;
     }
+  }
+
+  /* =========================
+   Result Image Spacing
+   結果圖與標題間距
+========================= */
+
+.result-visual {
+    margin-bottom: 6px;
+  }
   
-    .result-list {
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-  
-    .result-list li {
-      font-size: 0.68rem;
-      line-height: 1.35;
-      padding-left: 16px;
-    }
-  
-    .color-block {
-      width: 22px;
-      height: 22px;
-    }
+  .result-title {
+    margin-top: 0;
   }

@@ -2,223 +2,257 @@ import { create } from "zustand";
 
 const questionData = [
   {
-    question: "當身邊的人瘋狂倒苦水／塞訊息給你時，\n你的麵糰會？",
-    hint: "這題在測你面對他人情緒時，會如何吸收、消化或保護自己。",
+    question: "準備開始揉捏你的心靈麵糰，\n倒麵粉時，你不小心手滑多倒了半碗……\n這時候你的反應是？",
     options: [
       {
-        text: "先接住對方，但也會知道自己累了就暫停。",
-        value: 2,
+        label: "A",
+        text: "完蛋了！瘋狂加水試圖補救，結果越揉越大團，開始慌張。",
+        type: "choco",
       },
       {
-        text: "默默全部吸收，回完訊息後自己開始內耗。",
-        value: 4,
+        label: "B",
+        text: "拿湯匙默默把多倒的麵粉舀出來，精準秤重回原本的克數。",
+        type: "nut",
       },
       {
-        text: "會陪一下，但如果太滿就想躲進烤箱冷靜。",
-        value: 3,
+        label: "C",
+        text: "算了吧～那就做一隻超大麵包吧！隨興調整配方。",
+        type: "puff",
       },
       {
-        text: "不太會被影響，對方講完我也可以很快恢復。",
-        value: 1,
+        label: "D",
+        text: "盯著麵粉發呆三秒，突然覺得今天好累，乾脆明天再烤好了。",
+        type: "mochi",
       },
     ],
   },
   {
-    question: "如果今天的你被放進烤箱，\n你覺得自己最像哪種狀態？",
-    hint: "這題在看你平常面對壓力時，是膨脹、焦掉，還是穩穩成形。",
+    question: "揉麵糰需要加水。\n當身邊的人瘋狂倒苦水、塞訊息給你時，\n你的麵糰通常會？",
     options: [
       {
-        text: "慢慢膨脹，雖然緊張但還算穩定。",
-        value: 2,
+        label: "A",
+        text: "變成一攤爛泥。你全盤接收別人的情緒，導致自己跟著內耗當機。",
+        type: "choco",
       },
       {
-        text: "外表看起來金黃漂亮，裡面其實快烤乾。",
-        value: 4,
+        label: "B",
+        text: "表面塗了一層防水油。你開玩笑帶過，內心設有高牆。",
+        type: "nut",
       },
       {
-        text: "需要一點時間預熱，不然會不知所措。",
-        value: 3,
+        label: "C",
+        text: "像海綿一樣吸得剛剛好，還能順便安慰對方，社交拿捏得當。",
+        type: "mochi",
       },
       {
-        text: "烤得剛剛好，壓力來了也能自然處理。",
-        value: 1,
+        label: "D",
+        text: "直接把碗打翻。立刻開啟不讀不回、人間蒸發模式。",
+        type: "puff",
       },
     ],
   },
   {
-    question: "朋友突然取消約定時，\n你的內心第一反應是？",
-    hint: "這題在測你對人際變動的敏感度。",
+    question: "你想在麵糰中心包裹進什麼祕密內餡，\n來當作你面對世界的\n精神防禦機制？",
     options: [
       {
-        text: "覺得可惜，但很快安排自己的時間。",
-        value: 1,
+        label: "A",
+        text: "苦甜黑巧克力：帶點微憂鬱的文青感，用冷酷和一點小脾氣保護自己。",
+        type: "choco",
       },
       {
-        text: "表面說沒關係，但心裡會想是不是自己不重要。",
-        value: 4,
+        label: "B",
+        text: "爆漿流沙拉絲麻糬：性格超軟、超好說話，用順從與可愛迎合大家。",
+        type: "mochi",
       },
       {
-        text: "會有點失落，但如果對方有解釋就可以接受。",
-        value: 2,
+        label: "C",
+        text: "剛出爐的燙口起司：性格直白烈火，踩到你的底線你會直接爆炸。",
+        type: "puff",
       },
       {
-        text: "開始回想自己是不是哪裡做錯。",
-        value: 3,
+        label: "D",
+        text: "嚼勁十足的硬核堅果：非常有主見，只相信自己規律的生活節奏。",
+        type: "nut",
       },
     ],
   },
   {
-    question: "當你收到一句稱讚時，\n你通常會怎麼反應？",
-    hint: "這題在看你對肯定的接受程度。",
+    question: "終於要把麵包送進烤箱了。\n你最習慣用什麼樣的日常步調，\n來烘烤自己的人生？",
     options: [
       {
-        text: "開心收下，覺得今天有被灑糖粉。",
-        value: 1,
+        label: "A",
+        text: "220 度大火快烤：追求效率與成就感，把自己逼得很緊，常常快烤焦。",
+        type: "choco",
       },
       {
-        text: "表面冷靜，心裡偷偷開心很久。",
-        value: 2,
+        label: "B",
+        text: "120 度低溫慢焙：步調極慢，喜歡待在舒適圈裡默默發酵。",
+        type: "mochi",
       },
       {
-        text: "會懷疑對方是不是只是客氣。",
-        value: 3,
+        label: "C",
+        text: "精準 180 度定時定溫：生活要有完美計畫表，不允許脫軌意外。",
+        type: "nut",
       },
       {
-        text: "不知道怎麼收下，甚至覺得自己沒有那麼好。",
-        value: 4,
+        label: "D",
+        text: "隨便啦！看哪時候聞到香味再關燈：完全看心情做事，活在當下。",
+        type: "puff",
       },
     ],
   },
+
   {
-    question: "如果你的心是一份麵糰，\n你最怕它發生什麼事？",
-    hint: "這題在測你最核心的不安來源。",
-    options: [
-      {
-        text: "怕它被放太久，沒有人記得要烤它。",
-        value: 4,
-      },
-      {
-        text: "怕它還沒準備好，就被催著出爐。",
-        value: 3,
-      },
-      {
-        text: "怕味道不夠特別，但還是願意試試看。",
-        value: 2,
-      },
-      {
-        text: "不太怕，失敗了就再揉一次。",
-        value: 1,
-      },
-    ],
-  },
-  {
-    question: "你希望今天的心靈麵包店，\n最後送你一句什麼話？",
-    hint: "這題在看你現在最需要的情緒補給。",
-    options: [
-      {
-        text: "你不用一直很好，也值得被喜歡。",
-        value: 4,
-      },
-      {
-        text: "慢慢來，你正在變成更完整的自己。",
-        value: 3,
-      },
-      {
-        text: "你已經做得不錯了，可以給自己一點掌聲。",
-        value: 2,
-      },
-      {
-        text: "今天也可以輕輕鬆鬆地過完。",
-        value: 1,
-      },
-    ],
-  },
+   question:
+     "叮！你的心靈麵包終於新鮮出爐了！\n看著剛出爐、熱騰騰的成品，\n你打算怎麼把它包裝並分享給這個世界？",
+   options: [
+     {
+       label: "A",
+       text: "用最精緻的蕾絲紙袋加上絲帶綁好，並拍一張完美的照片發限動，雖然心裡其實很累。",
+       type: "choco",
+     },
+     {
+       label: "B",
+       text: "如果有人路過露出想吃的眼神，就大方地切一塊分給對方，自己吃剩下的也沒關係。",
+       type: "mochi",
+     },
+     {
+       label: "C",
+       text: "塞進無厘頭的怪異插畫紙袋裡，自己一邊哼著歌、一邊大口在路上邊走邊吃。",
+       type: "puff",
+     },
+     {
+       label: "D",
+       text: "嚴格用烘焙紙包好，貼上印有「今日品嚐期限」的標籤，整齊擺在桌上。",
+       type: "nut",
+     },
+   ],
+ },
 ];
 
-const resultData = [
-  {
-    min: 6,
-    max: 10,
-    title: "奶油小餐包",
-    subtitle: "柔軟、輕盈，內心自帶一點剛出爐的安定感。",
-    description: [
-      "你通常不會讓情緒在心裡停留太久，能自然地把生活重新調回舒服的溫度。",
-      "你給人的感覺溫和好親近，不太需要用力證明自己也能被喜歡。",
-      "你的心靈提醒是：偶爾不那麼懂事也沒關係，柔軟不是你的弱點。",
-    ],
-  },
-  {
-    min: 11,
-    max: 15,
-    title: "蜂蜜吐司",
-    subtitle: "外層溫暖，內在細膩，習慣把生活切成剛剛好的甜度。",
-    description: [
-      "你很會照顧氣氛，也常常是讓別人覺得安心的人。",
-      "你不一定會直接說出自己的需求，但其實很希望有人能主動注意到你。",
-      "你的心靈提醒是：不需要一直提供甜味，你本身就已經很值得靠近。",
-    ],
-  },
-  {
-    min: 16,
-    max: 20,
-    title: "鹽可頌",
-    subtitle: "酥脆與柔軟並存，越靠近越能嚐到細緻的層次。",
-    description: [
-      "你對人際細節很敏感，常常能察覺別人沒有說出口的情緒。",
-      "你看似可以處理很多事，但其實需要獨處時間把自己重新摺回來。",
-      "你的心靈提醒是：你可以溫柔，但不需要把所有人的重量都包進自己心裡。",
-    ],
-  },
-  {
-    min: 21,
-    max: 24,
+const resultData = {
+  choco: {
+    key: "choco",
     title: "100% 精緻黑巧克力可頌",
-    subtitle: "外表酥脆、內心早已有微微的苦澀內耗。",
-    description: [
-      "你常常表現得很懂事、很能消化，但其實心裡已經默默跑完很多小劇場。",
-      "你很容易把別人的一句話、一個反應、一個已讀不回反覆拿出來分析。",
-      "你的心靈提醒是：你不用靠過度理解別人，來換取自己被留下的安全感。",
-    ],
+    tag: "外表酥脆、內心早已有微微的苦澀內耗。",
+    description:
+      "你是朋友圈裡看起來最精緻、最得體的存在。但你最大的問題就是「過度共情」，不小心把別人的負面情緒 Request 全都接收下來，導致自己常常在深夜過度內耗。",
+    background: "pink",
+    colors: ["#8B4513", "#FFF8DC", "#F4C7C3"],
+    colorNames: ["焦糖棕", "奶油白", "淡粉可可"],
   },
-];
+  mochi: {
+    key: "mochi",
+    title: "軟萌拉絲麻糬吐司",
+    tag: "性格超軟、超好捏、高共情、容易迎合別人。",
+    description:
+      "你的性格像麻糬一樣充滿彈性與包容力，幾乎不跟人發生衝突。但要小心，太過好脾氣的結果就是容易被人過度揉捏而失去自我。記得為自己設下防線，偶爾拒絕別人也沒關係！",
+    background: "yellow",
+    colors: ["#D9B982", "#FFF3C4", "#F7E5C6"],
+    colorNames: ["蜂蜜金", "奶油黃", "拉絲米白"],
+  },
+  puff: {
+    key: "puff",
+    title: "爆漿空氣泡芙",
+    tag: "外表膨脹大隻、其實內心全都是自由的空氣。",
+    description:
+      "你天馬行空、不喜歡被世俗框架束縛。在別人眼裡你可能有點無厘頭、活在自己世界。你痛恨壓抑，哪裡自由你就往哪裡重新導向。",
+    background: "blue",
+    colors: ["#A9CFE7", "#FFF8DC", "#E9D7B8"],
+    colorNames: ["空氣粉藍", "奶油白", "泡芙米棕"],
+  },
+  nut: {
+    key: "nut",
+    title: "無麩質全麥堅果吐司",
+    tag: "極度理性、規律、直白，充滿健康的生活秩序。",
+    description:
+      "你是一盞極度穩定的聚光燈。你做事講求條理，大腦裡就像設定了精準的 Grid 網格，不允許生活脫軌。你設有極高的防火牆權限，只有通過你長期認證的知心朋友，才能看到你柔軟的一面。",
+    background: "khaki",
+    colors: ["#7A5A3A", "#C6A875", "#F4E7D3"],
+    colorNames: ["堅果棕", "卡其土色", "全麥米色"],
+  },
+};
+
+const initialScores = {
+  choco: 0,
+  mochi: 0,
+  puff: 0,
+  nut: 0,
+};
 
 export const usePsyDataStore = create((set, get) => ({
   question: 0,
-  totalValue: 0,
   questions: questionData,
   results: resultData,
+  scores: initialScores,
+  answers: [],
 
-  answerQuestion: (value) => {
+  answerQuestion: (answer) => {
     const currentQuestion = get().question;
+    const currentScores = get().scores;
+    const currentAnswers = get().answers;
 
     set({
-      totalValue: get().totalValue + value,
       question: currentQuestion + 1,
+      scores: {
+        ...currentScores,
+        [answer.type]: currentScores[answer.type] + 1,
+      },
+      answers: [...currentAnswers, answer],
+    });
+  },
+
+  previousQuestion: () => {
+    const currentQuestion = get().question;
+    const currentAnswers = get().answers;
+
+    if (currentQuestion <= 0 || currentAnswers.length === 0) {
+      return;
+    }
+
+    const lastAnswer = currentAnswers[currentAnswers.length - 1];
+    const newAnswers = currentAnswers.slice(0, -1);
+    const currentScores = get().scores;
+
+    set({
+      question: currentQuestion - 1,
+      answers: newAnswers,
+      scores: {
+        ...currentScores,
+        [lastAnswer.type]: Math.max(currentScores[lastAnswer.type] - 1, 0),
+      },
     });
   },
 
   resetQuiz: () => {
     set({
       question: 0,
-      totalValue: 0,
+      scores: initialScores,
+      answers: [],
     });
-  },
-
-  getCurrentQuestion: () => {
-    const currentQuestionIndex = get().question;
-    return get().questions[currentQuestionIndex];
-  },
-
-  isFinished: () => {
-    return get().question >= get().questions.length;
   },
 
   getResult: () => {
-    const score = get().totalValue;
-    const result = get().results.find((item) => {
-      return score >= item.min && score <= item.max;
-    });
+    const scores = get().scores;
+    const answers = get().answers;
 
-    return result || get().results[get().results.length - 1];
+    const orderedTypes = ["choco", "mochi", "puff", "nut"];
+    const maxScore = Math.max(...orderedTypes.map((type) => scores[type]));
+    const topTypes = orderedTypes.filter((type) => scores[type] === maxScore);
+
+    let finalType = topTypes[0];
+
+    if (topTypes.length > 1 && answers.length > 0) {
+      const reversedAnswers = [...answers].reverse();
+      const tieBreaker = reversedAnswers.find((answer) =>
+        topTypes.includes(answer.type)
+      );
+
+      if (tieBreaker) {
+        finalType = tieBreaker.type;
+      }
+    }
+
+    return get().results[finalType];
   },
 }));

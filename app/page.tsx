@@ -15,24 +15,19 @@ export default function Home() {
   return (
     <main className="entrance-page">
       <section className="entrance-container">
-        <p className="small-label">Internal Bakery</p>
+      <div className="cover-kicker">✦ 今日靈魂出爐 ✦</div>
 
-        <h1 className="main-title">
-          今日靈魂出爐：
-          <br />
-          心靈麵包店
-        </h1>
+<h1 className="main-title">
+  心靈麵包店
+</h1>
 
-        <p className="subtitle">
-          歡迎光臨心靈麵包店。請拿起你的盤子，讓我們看看今天的你，會烤成哪一種靈魂麵包。
-        </p>
-
-        <div className="bakery-window" aria-label="bakery window illustration">
-          <div className="awning"></div>
-          <div className="croissant"></div>
+        <div className="bakery-window" aria-label="心靈麵包店櫥窗">
+          <div className="window-grid vertical"></div>
+          <div className="window-grid horizontal"></div>
+          <div className="flat-croissant"></div>
         </div>
 
-        <button className="start-button" onClick={startQuiz}>
+        <button className="main-button" onClick={startQuiz}>
           拿取盤子，開始揉麵糰
         </button>
       </section>

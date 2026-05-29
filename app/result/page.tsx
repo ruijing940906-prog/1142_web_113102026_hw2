@@ -25,7 +25,6 @@ export default function ResultPage() {
   const [tongClicked, setTongClicked] = useState(false);
   const [breadPop, setBreadPop] = useState(false);
 
-  // 夾子自動開合
   useEffect(() => {
     if (tongClicked) return;
 
@@ -76,14 +75,9 @@ export default function ResultPage() {
 
   async function downloadCard() {
     if (!cardRef.current) return;
-  
+
     const html2canvas = (await import("html2canvas")).default;
-  
-    // 下載時只暫停動畫，不改位置
-    cardRef.current.classList.add("is-capturing");
-  
-    await new Promise((resolve) => setTimeout(resolve, 200));
-  
+
     const canvas = await html2canvas(cardRef.current, {
       backgroundColor: "#FDFBF7",
       scale: 2,
@@ -93,14 +87,13 @@ export default function ResultPage() {
       width: cardRef.current.offsetWidth,
       height: cardRef.current.offsetHeight,
     });
-  
-    cardRef.current.classList.remove("is-capturing");
-  
+
     const link = document.createElement("a");
     link.download = `${result.title}.png`;
     link.href = canvas.toDataURL("image/png");
     link.click();
   }
+
   return (
     <main className="result-page">
       <section ref={cardRef} className="app-shell result-card">
@@ -108,24 +101,19 @@ export default function ResultPage() {
           <p className="result-label">你的靈魂麵包是...</p>
 
           <div className="result-visual result-visual-animated">
-            
-
-            {/* 烤盤 */}
             <img
               src="/image/plate1.png"
               alt="烤盤"
               className="tray-image"
             />
 
-            {/* 夾子 */}
             <img
               src={tongOpen ? "/image/open.png" : "/image/close.png"}
-              alt="點擊夾子"
+              alt="夾子"
               className={`tongs-image ${tongClicked ? "is-clicked" : ""}`}
               onClick={handleTongClick}
             />
 
-            {/* 麵包 */}
             <img
               src={resultImage}
               alt={result.title}
@@ -135,7 +123,6 @@ export default function ResultPage() {
               onClick={handleBreadClick}
             />
 
-            {/* 小星星裝飾 */}
             <span className="sparkle one">✦</span>
             <span className="sparkle two">✧</span>
             <span className="sparkle three">✦</span>

@@ -2881,3 +2881,1700 @@
     }
   }
   
+  /* =========================
+   Global Bakery Aura Background
+   全站麵包色光暈背景
+========================= */
+html,
+body,
+.home-page,
+.question-page,
+.loading-page,
+.result-page {
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 230, 178, 0.36), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(96, 55, 32, 0.46), transparent 36%),
+    radial-gradient(circle at 22% 82%, rgba(190, 119, 71, 0.36), transparent 38%),
+    radial-gradient(circle at 78% 78%, rgba(71, 42, 28, 0.34), transparent 42%),
+    linear-gradient(135deg, #8f5d3f 0%, #b97850 40%, #9f6554 70%, #5c3a21 100%) !important;
+  background-attachment: fixed !important;
+}
+/* =========================
+   Light Bakery Aura Background
+   淺色麵包光暈背景
+========================= */
+
+main {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(255, 230, 172, 0.55), transparent 30%),
+      radial-gradient(circle at 84% 20%, rgba(255, 214, 196, 0.42), transparent 34%),
+      radial-gradient(circle at 22% 82%, rgba(233, 199, 146, 0.38), transparent 36%),
+      radial-gradient(circle at 82% 82%, rgba(244, 199, 195, 0.34), transparent 40%),
+      linear-gradient(135deg, #fffaf0 0%, #f7ead4 38%, #fdf3e3 68%, #fff8ee 100%) !important;
+  }
+
+  /* =========================
+   FINAL Light Bakery Background
+   最終淺色麵包光暈背景
+========================= */
+
+html,
+body,
+main,
+.home-page,
+.question-page,
+.loading-page,
+.result-page {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.42), transparent 32%),
+    radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.32), transparent 34%),
+    radial-gradient(circle at 22% 82%, rgba(235, 202, 154, 0.28), transparent 38%),
+    radial-gradient(circle at 82% 82%, rgba(247, 209, 204, 0.24), transparent 40%),
+    linear-gradient(135deg, #fffdf8 0%, #fbf0df 38%, #fff7ea 68%, #fffaf3 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* 中間卡片維持奶白，不要變深 */
+.app-shell,
+.home-cover,
+.result-card {
+  background: rgba(255, 252, 246, 0.94) !important;
+}
+
+/* =========================
+   Background Bread Marquee
+   背景上下兩排麵包捲動，不影響前方卡片
+========================= */
+
+.bakery-bg-marquee {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  /* 上下兩排的位置 */
+  .bread-row {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .bread-row-top {
+    top: 28px;
+  }
+  
+  .bread-row-bottom {
+    bottom: 28px;
+  }
+  
+  /* 捲動軌道 */
+  .bread-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 62px;
+    opacity: 0.32;
+    filter: brightness(1.1);
+  }
+  
+  /* 麵包圖片 */
+  .bread-track img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.78;
+  }
+  
+  /* 上排往左 */
+  .bread-track-left {
+    animation: breadMoveLeft 38s linear infinite;
+  }
+  
+  /* 下排往右 */
+  .bread-track-right {
+    animation: breadMoveRight 42s linear infinite;
+  }
+  
+  @keyframes breadMoveLeft {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes breadMoveRight {
+    from {
+      transform: translateX(-50%);
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* 確保所有主頁面與中央卡片都在背景上方 */
+  main,
+  .home-page,
+  .entrance-page,
+  .quiz-page,
+  .loading-page,
+  .result-page,
+  .app-shell,
+  .entrance-container,
+  .loading-card,
+  .result-card {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* 避免頁面自己的背景把麵包背景完全蓋住 */
+  main,
+  .home-page,
+  .entrance-page,
+  .quiz-page,
+  .loading-page,
+  .result-page {
+    background:
+      radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.42), transparent 32%),
+      radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.32), transparent 34%),
+      radial-gradient(circle at 22% 82%, rgba(235, 202, 154, 0.28), transparent 38%),
+      radial-gradient(circle at 82% 82%, rgba(247, 209, 204, 0.24), transparent 40%),
+      linear-gradient(135deg, #fffdf8 0%, #fbf0df 38%, #fff7ea 68%, #fffaf3 100%) !important;
+  }
+
+  /* =========================
+   Background Bread Marquee Fix
+   背景上下麵包捲動圖層修正版
+========================= */
+
+.bakery-bg-marquee {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  /* 上下兩排 */
+  .bread-row {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .bread-row-top {
+    top: 24px;
+  }
+  
+  .bread-row-bottom {
+    bottom: 24px;
+  }
+  
+  /* 不要用 bread-track，避免跟你前面的 emoji marquee 撞名 */
+  .bread-icon-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 64px;
+    opacity: 0.38;
+  }
+  
+  .bread-icon-track img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  /* 上排往左 */
+  .bread-track-left {
+    animation: breadMoveLeft 38s linear infinite;
+  }
+  
+  /* 下排往右 */
+  .bread-track-right {
+    animation: breadMoveRight 42s linear infinite;
+  }
+  
+  @keyframes breadMoveLeft {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes breadMoveRight {
+    from {
+      transform: translateX(-50%);
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* 頁面本體在背景層下面，但卡片在最上面 */
+  main,
+  .home-page,
+  .entrance-page,
+  .quiz-page,
+  .loading-page,
+  .result-page {
+    position: relative;
+    z-index: 0;
+  }
+  
+  /* 中央卡片一定在麵包圖案上面，不會被蓋 */
+  .app-shell,
+  .entrance-container,
+  .loading-card,
+  .result-card {
+    position: relative;
+    z-index: 3;
+  }
+  
+  /* 手機版 */
+  @media (max-width: 520px) {
+    .bread-row-top {
+      top: 16px;
+    }
+  
+    .bread-row-bottom {
+      bottom: 16px;
+    }
+  
+    .bread-icon-track {
+      gap: 44px;
+      opacity: 1;
+    }
+  
+    .bread-icon-track img {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  /* =========================
+   Bread Marquee More Visible
+   麵包背景圖案更明顯、更大、間距更近
+========================= */
+
+.bread-icon-track {
+    gap: 34px !important;
+    opacity: 1 !important;
+  }
+  
+  .bread-icon-track img {
+    width: 86px !important;
+    height: 86px !important;
+    object-fit: contain;
+  }
+  
+  /* 上下排位置，如果想更靠邊可調這裡 */
+  .bread-row-top {
+    top: 22px !important;
+  }
+  
+  .bread-row-bottom {
+    bottom: 22px !important;
+  }
+  
+  /* 手機版也一起調整 */
+  @media (max-width: 520px) {
+    .bread-icon-track {
+      gap: 26px !important;
+      opacity: 0.5 !important;
+    }
+  
+    .bread-icon-track img {
+      width: 58px !important;
+      height: 58px !important;
+    }
+  
+    .bread-row-top {
+      top: 14px !important;
+    }
+  
+    .bread-row-bottom {
+      bottom: 14px !important;
+    }
+  }
+
+  .bread-icon-track {
+    gap: 24px !important;
+    opacity: 1 !important;
+  }
+  
+  .bread-icon-track img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* =========================
+   FIX Background Bread Marquee Layer
+   修正背景麵包：更清楚、不蓋卡片
+========================= */
+
+/* 讓真正背景放在 body/html，不要由 main 蓋住 */
+html,
+body {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.42), transparent 32%),
+    radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.32), transparent 34%),
+    radial-gradient(circle at 22% 82%, rgba(235, 202, 154, 0.28), transparent 38%),
+    radial-gradient(circle at 82% 82%, rgba(247, 209, 204, 0.24), transparent 40%),
+    linear-gradient(135deg, #fffdf8 0%, #fbf0df 38%, #fff7ea 68%, #fffaf3 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* 頁面本身不要再蓋住背景麵包 */
+main,
+.home-page,
+.question-page,
+.loading-page,
+.result-page {
+  position: relative !important;
+  z-index: 1 !important;
+  background: transparent !important;
+}
+
+/* 背景麵包層：在頁面背景上，但在卡片下面 */
+.bakery-bg-marquee {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+/* 卡片一定要蓋住背景麵包，不讓圖案透進卡片裡 */
+.app-shell,
+.home-cover,
+.result-card,
+.question-card,
+.loading-card,
+.entrance-container {
+  position: relative !important;
+  z-index: 3 !important;
+  background: #fffdf8 !important;
+}
+
+/* 上下兩排麵包位置 */
+.bread-row {
+  position: absolute !important;
+  left: 0 !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+.bread-row-top {
+  top: 34px !important;
+}
+
+.bread-row-bottom {
+  bottom: 34px !important;
+}
+
+/* 麵包捲動軌道：更清楚、間距更近 */
+.bread-icon-track {
+  display: flex !important;
+  align-items: center !important;
+  width: max-content !important;
+  gap: 28px !important;
+  opacity: 0.68 !important;
+}
+
+/* 麵包圖片：放大、加深一點 */
+.bread-icon-track img {
+  width: 92px !important;
+  height: 92px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  opacity: 0.9 !important;
+  filter:
+    sepia(1)
+    saturate(1.15)
+    hue-rotate(335deg)
+    brightness(0.92)
+    contrast(1.18) !important;
+}
+
+/* 上排往左 */
+.bread-track-left {
+  animation: breadMoveLeft 42s linear infinite !important;
+}
+
+/* 下排往右 */
+.bread-track-right {
+  animation: breadMoveRight 46s linear infinite !important;
+}
+
+@keyframes breadMoveLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes breadMoveRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   FINAL Background Bread Rows
+   用 main 偽元素做上下麵包捲動，不影響卡片
+========================= */
+
+main {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.42), transparent 32%),
+      radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.32), transparent 34%),
+      radial-gradient(circle at 22% 82%, rgba(235, 202, 154, 0.28), transparent 38%),
+      radial-gradient(circle at 82% 82%, rgba(247, 209, 204, 0.24), transparent 40%),
+      linear-gradient(135deg, #fffdf8 0%, #fbf0df 38%, #fff7ea 68%, #fffaf3 100%) !important;
+  }
+  
+  /* 上排麵包 */
+  main::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 24px;
+    width: 2400px;
+    height: 110px;
+    pointer-events: none;
+    z-index: 0;
+  
+    background-image:
+      url("/image/01.png"),
+      url("/image/02.png"),
+      url("/image/03.png"),
+      url("/image/04.png"),
+      url("/image/05.png"),
+      url("/image/06.png"),
+      url("/image/01.png"),
+      url("/image/02.png"),
+      url("/image/03.png"),
+      url("/image/04.png"),
+      url("/image/05.png"),
+      url("/image/06.png");
+  
+    background-repeat: no-repeat;
+    background-size: 82px 82px;
+  
+    background-position:
+      0px 12px,
+      130px 8px,
+      260px 14px,
+      390px 6px,
+      520px 12px,
+      650px 8px,
+      780px 12px,
+      910px 8px,
+      1040px 14px,
+      1170px 6px,
+      1300px 12px,
+      1430px 8px;
+  
+    opacity: 0.72;
+    filter:
+      sepia(1)
+      saturate(1.05)
+      hue-rotate(335deg)
+      brightness(0.96)
+      contrast(1.15);
+  
+    animation: breadBgMoveLeft 42s linear infinite;
+  }
+  
+  /* 下排麵包 */
+  main::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    bottom: 24px;
+    width: 2400px;
+    height: 110px;
+    pointer-events: none;
+    z-index: 0;
+  
+    background-image:
+      url("/image/04.png"),
+      url("/image/05.png"),
+      url("/image/06.png"),
+      url("/image/01.png"),
+      url("/image/02.png"),
+      url("/image/03.png"),
+      url("/image/04.png"),
+      url("/image/05.png"),
+      url("/image/06.png"),
+      url("/image/01.png"),
+      url("/image/02.png"),
+      url("/image/03.png");
+  
+    background-repeat: no-repeat;
+    background-size: 82px 82px;
+  
+    background-position:
+      0px 12px,
+      130px 8px,
+      260px 14px,
+      390px 6px,
+      520px 12px,
+      650px 8px,
+      780px 12px,
+      910px 8px,
+      1040px 14px,
+      1170px 6px,
+      1300px 12px,
+      1430px 8px;
+  
+    opacity: 0.72;
+    filter:
+      sepia(1)
+      saturate(1.05)
+      hue-rotate(335deg)
+      brightness(0.96)
+      contrast(1.15);
+  
+    animation: breadBgMoveRight 46s linear infinite;
+  }
+  
+  @keyframes breadBgMoveLeft {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(-780px);
+    }
+  }
+  
+  @keyframes breadBgMoveRight {
+    from {
+      transform: translateX(-780px);
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* 讓前方卡片一定在麵包背景上面 */
+  .app-shell,
+  .home-cover,
+  .result-card,
+  .question-card,
+  .loading-card,
+  .entrance-container {
+    position: relative !important;
+    z-index: 2 !important;
+    background: #fffdf8 !important;
+  }
+
+  /* =========================
+   FINAL Background Bread Marquee
+   上下兩排麵包背景：無限循環、不蓋卡片
+========================= */
+
+/* 關掉舊的 main::before / main::after 麵包背景 */
+main::before,
+main::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 淺色光暈背景 */
+html,
+body,
+main {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.42), transparent 32%),
+    radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.32), transparent 34%),
+    radial-gradient(circle at 22% 82%, rgba(235, 202, 154, 0.28), transparent 38%),
+    radial-gradient(circle at 82% 82%, rgba(247, 209, 204, 0.24), transparent 40%),
+    linear-gradient(135deg, #fffdf8 0%, #fbf0df 38%, #fff7ea 68%, #fffaf3 100%) !important;
+}
+
+/* 背景麵包層 */
+.bakery-bg-marquee {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* 上下兩排位置 */
+.bg-bread-row {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-bread-row-top {
+  top: 30px;
+}
+
+.bg-bread-row-bottom {
+  bottom: 30px;
+}
+
+/* 捲動軌道 */
+.bg-bread-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 34px;
+  opacity: 0.72;
+  will-change: transform;
+}
+
+/* 麵包圖片 */
+.bg-bread-track img {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.95;
+  filter:
+    sepia(1)
+    saturate(1.05)
+    hue-rotate(335deg)
+    brightness(0.98)
+    contrast(1.15);
+}
+
+/* 上排往左，移動一半剛好接續 */
+.bg-bread-track-left {
+  animation: bgBreadMoveLeft 36s linear infinite;
+}
+
+/* 下排往右 */
+.bg-bread-track-right {
+  animation: bgBreadMoveRight 40s linear infinite;
+}
+
+@keyframes bgBreadMoveLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bgBreadMoveRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* 前方頁面與卡片都在背景麵包上面 */
+main,
+.home-page,
+.question-page,
+.loading-page,
+.result-page {
+  position: relative;
+  z-index: 1;
+}
+
+.app-shell,
+.home-cover,
+.question-card,
+.result-card,
+.loading-card,
+.entrance-container {
+  position: relative;
+  z-index: 2;
+  background: #fffdf8 !important;
+}
+
+/* 手機版 */
+@media (max-width: 520px) {
+  .bg-bread-row-top {
+    top: 18px;
+  }
+
+  .bg-bread-row-bottom {
+    bottom: 18px;
+  }
+
+  .bg-bread-track {
+    gap: 24px;
+    opacity: 0.58;
+  }
+
+  .bg-bread-track img {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* =========================
+   Entrance Background Bread Marquee
+   首頁背景上下兩排麵包，不影響卡片
+========================= */
+
+.entrance-page {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.42), transparent 32%),
+      radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.32), transparent 34%),
+      radial-gradient(circle at 22% 82%, rgba(235, 202, 154, 0.28), transparent 38%),
+      radial-gradient(circle at 82% 82%, rgba(247, 209, 204, 0.24), transparent 40%),
+      linear-gradient(135deg, #fffdf8 0%, #fbf0df 38%, #fff7ea 68%, #fffaf3 100%) !important;
+  }
+  
+  .bakery-bg-marquee {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+  }
+  
+  .bg-bread-row {
+    position: absolute !important;
+    left: 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+  
+  .bg-bread-row-top {
+    top: 28px !important;
+  }
+  
+  .bg-bread-row-bottom {
+    bottom: 28px !important;
+  }
+  
+  .bg-bread-track {
+    display: flex !important;
+    align-items: center !important;
+    width: max-content !important;
+    gap: 24px !important;
+    opacity: 0.8 !important;
+    will-change: transform;
+  }
+  
+  .bg-bread-track img {
+    width: 92px !important;
+    height: 92px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    opacity: 0.95 !important;
+    filter:
+      sepia(1)
+      saturate(1.05)
+      hue-rotate(335deg)
+      brightness(0.98)
+      contrast(1.15);
+  }
+  
+  .bg-bread-track-left {
+    animation: bgBreadMoveLeft 38s linear infinite !important;
+  }
+  
+  .bg-bread-track-right {
+    animation: bgBreadMoveRight 42s linear infinite !important;
+  }
+  
+  @keyframes bgBreadMoveLeft {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(-33.333%);
+    }
+  }
+  
+  @keyframes bgBreadMoveRight {
+    from {
+      transform: translateX(-33.333%);
+    }
+  
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* 前方卡片一定在背景麵包上方 */
+  .entrance-container {
+    position: relative !important;
+    z-index: 2 !important;
+    background: #fffdf8 !important;
+  }
+  
+  /* =========================
+     Entrance Main Image
+     首頁 main.png 主視覺
+  ========================= */
+  
+  .cover-main-visual {
+    width: min(360px, 72vw);
+    margin: 24px auto 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: coverVisualFloat 3.6s ease-in-out infinite;
+  }
+  
+  .cover-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 16px 24px rgba(92, 58, 33, 0.12));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .cover-main-visual:hover .cover-main-image {
+    transform: scale(1.035);
+    filter: drop-shadow(0 20px 30px rgba(92, 58, 33, 0.16));
+  }
+  
+  @keyframes coverVisualFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+  
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  /* 手機版 */
+  @media (max-width: 520px) {
+    .bg-bread-row-top {
+      top: 18px !important;
+    }
+  
+    .bg-bread-row-bottom {
+      bottom: 18px !important;
+    }
+  
+    .bg-bread-track {
+      gap: 18px !important;
+      opacity: 0.56 !important;
+    }
+  
+    .bg-bread-track img {
+      width: 58px !important;
+      height: 58px !important;
+    }
+  
+    .cover-main-visual {
+      width: min(300px, 76vw);
+      margin: 20px auto 30px;
+    }
+  }
+
+  /* =========================
+   REMOVE BREAD MARQUEE ICONS
+   移除所有背景捲動麵包 icon
+========================= */
+
+.global-bread-bg,
+.bakery-bg-marquee,
+.bread-marquee {
+  display: none !important;
+}
+
+main::before,
+main::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================
+   SOFT LIGHT BAKERY BACKGROUND
+   淺色麵包光暈背景
+========================= */
+
+html,
+body,
+main,
+.entrance-page,
+.question-page,
+.loading-page,
+.result-page {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.42), transparent 32%),
+    radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.32), transparent 34%),
+    radial-gradient(circle at 22% 82%, rgba(235, 202, 154, 0.28), transparent 38%),
+    radial-gradient(circle at 82% 82%, rgba(247, 209, 204, 0.24), transparent 40%),
+    linear-gradient(135deg, #fffdf8 0%, #fbf0df 38%, #fff7ea 68%, #fffaf3 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* 中央卡片 */
+.entrance-container,
+.app-shell,
+.question-card,
+.loading-card,
+.result-card {
+  position: relative !important;
+  z-index: 2 !important;
+  background: #fffdf8 !important;
+}
+
+/* =========================
+   FIX HOME MAIN IMAGE
+   修正首頁 main.png 不變形
+========================= */
+
+.cover-main-visual {
+  width: min(360px, 72vw) !important;
+  height: auto !important;
+  margin: 28px auto 36px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  animation: coverVisualFloat 3.6s ease-in-out infinite;
+}
+
+.cover-main-image {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  aspect-ratio: auto !important;
+  filter: drop-shadow(0 16px 24px rgba(92, 58, 33, 0.12));
+}
+
+@keyframes coverVisualFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* 手機版 */
+@media (max-width: 520px) {
+  .cover-main-visual {
+    width: min(300px, 76vw) !important;
+    margin: 22px auto 30px !important;
+  }
+}
+
+/* =========================
+   ENTRANCE PAGE EMERGENCY RESTORE
+   首頁救回：強制顯示文字 / 圖片 / 按鈕
+========================= */
+
+.entrance-page {
+    width: 100%;
+    height: 100vh;
+    padding: 24px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(255, 232, 177, 0.32), transparent 32%),
+      radial-gradient(circle at 84% 20%, rgba(255, 218, 198, 0.22), transparent 34%),
+      linear-gradient(135deg, #fffdf8 0%, #fbf0df 45%, #fff7ea 100%) !important;
+  }
+  
+  .entrance-container {
+    width: min(620px, calc(100vw - 48px)) !important;
+    height: min(760px, calc(100vh - 48px)) !important;
+    padding: 48px 32px 46px !important;
+    border-radius: 36px !important;
+    background: #fffdf8 !important;
+    box-shadow: 0 24px 60px rgba(92, 58, 33, 0.1);
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+    overflow: hidden !important;
+  }
+  
+  /* 防止之前有 CSS 把首頁內容藏掉 */
+  .entrance-container > * {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+  
+  /* 上方小字 */
+  .cover-kicker {
+    color: #a96f45 !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    margin: 0 0 22px !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* 主標 */
+  .main-title {
+    color: #5c3a21 !important;
+    font-size: clamp(3rem, 6vw, 4.8rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    margin: 0 0 26px !important;
+  }
+  
+  /* 新首頁主視覺：帆布 + 櫥窗 */
+  .cover-shop-visual {
+    width: min(360px, 72vw) !important;
+    height: auto !important;
+    margin: 0 auto 34px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    animation: coverShopFloat 3.8s ease-in-out infinite;
+  }
+  
+  /* 帆布 */
+  .cover-awning {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin-bottom: -14px !important;
+    transform-origin: top center !important;
+    animation: awningWave 2.8s ease-in-out infinite !important;
+    filter: drop-shadow(0 8px 12px rgba(92, 58, 33, 0.08));
+  }
+  
+  /* 櫥窗 */
+  .cover-shop-main {
+    display: block !important;
+    width: 92% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 14px 22px rgba(92, 58, 33, 0.12));
+    transition: transform 0.28s ease, filter 0.28s ease;
+  }
+  
+  .cover-shop-visual:hover .cover-shop-main {
+    transform: scale(1.025);
+  }
+  
+  @keyframes coverShopFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+  
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+  
+  @keyframes awningWave {
+    0%,
+    100% {
+      transform: rotate(0deg) translateY(0);
+    }
+  
+    25% {
+      transform: rotate(-1.2deg) translateY(1px);
+    }
+  
+    50% {
+      transform: rotate(0.9deg) translateY(-1px);
+    }
+  
+    75% {
+      transform: rotate(-0.7deg) translateY(1px);
+    }
+  }
+  
+  /* 按鈕 */
+  .entrance-container .main-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 250px !important;
+    padding: 14px 28px !important;
+    border-radius: 999px !important;
+    border: 2px solid rgba(92, 58, 33, 0.12) !important;
+    background: #f4d873 !important;
+    color: #5c3a21 !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 0 rgba(213, 179, 79, 0.75);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  
+  .entrance-container .main-button:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 0 rgba(213, 179, 79, 0.75);
+  }
+  
+  /* 隱藏舊 CSS 畫的櫥窗，避免重疊 */
+  .bakery-window {
+    display: none !important;
+  }
+  
+  /* 手機版 */
+  @media (max-width: 520px) {
+    .entrance-page {
+      padding: 12px !important;
+    }
+  
+    .entrance-container {
+      width: calc(100vw - 24px) !important;
+      height: calc(100vh - 24px) !important;
+      padding: 34px 20px 34px !important;
+      border-radius: 32px !important;
+    }
+  
+    .cover-kicker {
+      font-size: 0.95rem !important;
+      margin-bottom: 18px !important;
+    }
+  
+    .main-title {
+      font-size: 3rem !important;
+      margin-bottom: 22px !important;
+    }
+  
+    .cover-shop-visual {
+      width: min(300px, 76vw) !important;
+      margin-bottom: 30px !important;
+    }
+  
+    .cover-awning {
+      margin-bottom: -10px !important;
+    }
+  
+    .entrance-container .main-button {
+      min-width: 230px !important;
+      padding: 13px 22px !important;
+      font-size: 0.95rem !important;
+    }
+  }
+
+  /* =========================
+   FIX ENTRANCE SHOP VISUAL
+   修正首頁：文字回來、圖片不撐版、整體往上
+========================= */
+
+.entrance-page {
+    height: 100vh !important;
+    padding: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+  
+  .entrance-container {
+    width: min(620px, calc(100vw - 48px)) !important;
+    height: min(760px, calc(100vh - 48px)) !important;
+    padding: 34px 32px 38px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    gap: 0 !important;
+    background: #fffdf8 !important;
+    border-radius: 36px !important;
+    overflow: hidden !important;
+  }
+  
+  /* 文字強制顯示 */
+  .cover-kicker {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #a96f45 !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.3 !important;
+    margin: 0 0 18px !important;
+    z-index: 5 !important;
+  }
+  
+  .main-title {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #5c3a21 !important;
+    font-size: clamp(3rem, 5.6vw, 4.4rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.05 !important;
+    margin: 0 0 20px !important;
+    z-index: 5 !important;
+  }
+  
+  /* 圖片舞台：固定高度，不讓圖片本身透明留白撐開版面 */
+  .cover-shop-visual {
+    position: relative !important;
+    width: min(360px, 72vw) !important;
+    height: 285px !important;
+    margin: 0 auto 26px !important;
+    display: block !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+    animation: coverShopFloat 3.8s ease-in-out infinite;
+  }
+  
+  /* 帆布：用絕對定位放上方 */
+  .cover-awning {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    width: 360px !important;
+    max-width: 100% !important;
+    height: auto !important;
+    transform: translateX(-50%) !important;
+    object-fit: contain !important;
+    display: block !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform-origin: top center !important;
+    animation: awningWaveFixed 2.8s ease-in-out infinite !important;
+    filter: drop-shadow(0 8px 12px rgba(92, 58, 33, 0.08));
+  }
+  
+  /* 櫥窗：往上放，不要掉到底部 */
+  .cover-shop-main {
+    position: absolute !important;
+    left: 50% !important;
+    top: 112px !important;
+    width: 310px !important;
+    max-width: 88% !important;
+    height: auto !important;
+    transform: translateX(-50%) !important;
+    object-fit: contain !important;
+    display: block !important;
+    z-index: 1 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: drop-shadow(0 14px 22px rgba(92, 58, 33, 0.12));
+  }
+  
+  /* 按鈕強制顯示 */
+  .entrance-container .main-button {
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 250px !important;
+    padding: 14px 28px !important;
+    border-radius: 999px !important;
+    background: #f4d873 !important;
+    color: #5c3a21 !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    border: 2px solid rgba(92, 58, 33, 0.12) !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 0 rgba(213, 179, 79, 0.75);
+    z-index: 5 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* 整體漂浮 */
+  @keyframes coverShopFloat {
+    0%,
+    100% {
+      transform: translateY(-8px);
+    }
+  
+    50% {
+      transform: translateY(-16px);
+    }
+  }
+  
+  /* 帆布飄動：保留置中 translateX */
+  @keyframes awningWaveFixed {
+    0%,
+    100% {
+      transform: translateX(-50%) rotate(0deg) translateY(0);
+    }
+  
+    25% {
+      transform: translateX(-50%) rotate(-1.2deg) translateY(1px);
+    }
+  
+    50% {
+      transform: translateX(-50%) rotate(0.9deg) translateY(-1px);
+    }
+  
+    75% {
+      transform: translateX(-50%) rotate(-0.7deg) translateY(1px);
+    }
+  }
+  
+  /* 手機版 */
+  @media (max-width: 520px) {
+    .entrance-container {
+      width: calc(100vw - 24px) !important;
+      height: calc(100vh - 24px) !important;
+      padding: 38px 20px 32px !important;
+    }
+  
+    .cover-kicker {
+      font-size: 0.9rem !important;
+      margin-bottom: 16px !important;
+    }
+  
+    .main-title {
+      font-size: 2.8rem !important;
+      margin-bottom: 18px !important;
+    }
+  
+    .cover-shop-visual {
+      width: min(300px, 76vw) !important;
+      height: 250px !important;
+      margin-bottom: 24px !important;
+    }
+  
+    .cover-awning {
+      width: 300px !important;
+    }
+  
+    .cover-shop-main {
+      top: 96px !important;
+      width: 260px !important;
+    }
+  
+    .entrance-container .main-button {
+      min-width: 230px !important;
+      padding: 13px 22px !important;
+      font-size: 0.92rem !important;
+    }
+  }
+
+  /* =========================
+   ENTRANCE FINAL VISUAL ADJUST
+   帆布移到字上方、整體加寬、按鈕半透明
+========================= */
+
+/* 首頁卡片內部重新排 */
+.entrance-container {
+    justify-content: center !important;
+    padding: 34px 32px 38px !important;
+  }
+  
+  /* 讓帆布區跑到最上方 */
+  .cover-shop-visual {
+    order: 0 !important;
+    position: relative !important;
+    width: min(460px, 82vw) !important;
+    height: 330px !important;
+    margin: 0 auto 18px !important;
+    display: block !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+    animation: coverShopFloat 3.8s ease-in-out infinite;
+  }
+  
+  /* 小字在帆布下面 */
+  .cover-kicker {
+    order: 1 !important;
+    margin: 0 0 16px !important;
+  }
+  
+  /* 主標在小字下面 */
+  .main-title {
+    order: 2 !important;
+    margin: 0 0 20px !important;
+  }
+  
+  /* 按鈕在最後 */
+  .entrance-container .main-button {
+    order: 3 !important;
+  }
+  
+  /* 帆布：放在上方，拉寬 */
+  .cover-awning {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    width: 460px !important;
+    max-width: 100% !important;
+    height: auto !important;
+    transform: translateX(-50%) !important;
+    object-fit: contain !important;
+    display: block !important;
+    z-index: 2 !important;
+    animation: awningWaveFixed 2.8s ease-in-out infinite !important;
+  }
+  
+  /* 櫥窗：跟著拉寬，放在帆布下方 */
+  .cover-shop-main {
+    position: absolute !important;
+    left: 50% !important;
+    top: 145px !important;
+    width: 380px !important;
+    max-width: 88% !important;
+    height: auto !important;
+    transform: translateX(-50%) !important;
+    object-fit: contain !important;
+    display: block !important;
+    z-index: 1 !important;
+  }
+  
+  /* 按鈕半透明一點 */
+  .entrance-container .main-button {
+    background: rgba(244, 216, 115, 0.78) !important;
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(92, 58, 33, 0.12) !important;
+    box-shadow: 0 6px 0 rgba(213, 179, 79, 0.55);
+  }
+  
+  /* 整體漂浮：不要太大幅 */
+  @keyframes coverShopFloat {
+    0%,
+    100% {
+      transform: translateY(-4px);
+    }
+  
+    50% {
+      transform: translateY(-11px);
+    }
+  }
+  
+  /* 帆布飄動：保留置中 */
+  @keyframes awningWaveFixed {
+    0%,
+    100% {
+      transform: translateX(-50%) rotate(0deg) translateY(0);
+    }
+  
+    25% {
+      transform: translateX(-50%) rotate(-1.1deg) translateY(1px);
+    }
+  
+    50% {
+      transform: translateX(-50%) rotate(0.8deg) translateY(-1px);
+    }
+  
+    75% {
+      transform: translateX(-50%) rotate(-0.6deg) translateY(1px);
+    }
+  }
+
+  /* =========================
+   HOME FIX POSITION VERSION
+   固定位置版：避免圖片撐爆、變扁、超出
+========================= */
+
+.homeBakeryCard {
+    position: relative !important;
+    width: min(620px, calc(100vw - 48px)) !important;
+    height: min(760px, calc(100vh - 48px)) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: 36px !important;
+    background: #fffdf8 !important;
+    display: block !important;
+  }
+  
+  /* 帆布：固定在最上方，不參與排版 */
+  .homeBakeryAwning {
+    position: absolute !important;
+    top: 42px !important;
+    left: 50% !important;
+    width: 380px !important;
+    max-width: 78% !important;
+    height: auto !important;
+    transform: translateX(-50%) !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    display: block !important;
+    z-index: 3 !important;
+    animation: homeAwningFloatFixed 3.4s ease-in-out infinite !important;
+  }
+  
+  /* 小標：放中間上方 */
+  .homeBakeryKicker {
+    position: absolute !important;
+    top: 235px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    margin: 0 !important;
+    color: #a96f45 !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    text-align: center !important;
+    z-index: 4 !important;
+  }
+  
+  /* 主標：字在中間 */
+  .homeBakeryTitle {
+    position: absolute !important;
+    top: 270px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    margin: 0 !important;
+    color: #5c3a21 !important;
+    font-size: clamp(3rem, 5.2vw, 4.4rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.05 !important;
+    text-align: center !important;
+    z-index: 4 !important;
+  }
+  
+  /* 按鈕：在標題下方 */
+  .homeBakeryButton {
+    position: absolute !important;
+    top: 398px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 250px !important;
+    padding: 14px 28px !important;
+    border-radius: 999px !important;
+    background: rgba(244, 216, 115, 0.78) !important;
+    backdrop-filter: blur(4px) !important;
+    color: #5c3a21 !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    border: 2px solid rgba(92, 58, 33, 0.12) !important;
+    box-shadow: 0 6px 0 rgba(213, 179, 79, 0.55) !important;
+    z-index: 5 !important;
+  }
+  
+  /* 櫥窗：縮小並固定在下方，不再撐爆 */
+  .homeBakeryWindow {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 48px !important;
+    width: 340px !important;
+    max-width: 72% !important;
+    height: auto !important;
+    transform: translateX(-50%) !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    display: block !important;
+    z-index: 3 !important;
+    animation: homeWindowFloatFixed 3.8s ease-in-out infinite !important;
+    filter: drop-shadow(0 14px 22px rgba(92, 58, 33, 0.12)) !important;
+  }
+  
+  /* 動畫 */
+  @keyframes homeAwningFloatFixed {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0) rotate(0deg);
+    }
+  
+    25% {
+      transform: translateX(-50%) translateY(-3px) rotate(-0.8deg);
+    }
+  
+    50% {
+      transform: translateX(-50%) translateY(-6px) rotate(0.7deg);
+    }
+  
+    75% {
+      transform: translateX(-50%) translateY(-3px) rotate(-0.5deg);
+    }
+  }
+  
+  @keyframes homeWindowFloatFixed {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+  
+    50% {
+      transform: translateX(-50%) translateY(-7px);
+    }
+  }
+  
+  /* 手機版 */
+  @media (max-width: 520px) {
+    .homeBakeryCard {
+      width: calc(100vw - 24px) !important;
+      height: calc(100vh - 24px) !important;
+      border-radius: 32px !important;
+    }
+  
+    .homeBakeryAwning {
+      top: 48px !important;
+      width: 300px !important;
+      max-width: 82% !important;
+    }
+  
+    .homeBakeryKicker {
+      top: 220px !important;
+      font-size: 0.9rem !important;
+    }
+  
+    .homeBakeryTitle {
+      top: 255px !important;
+      font-size: 2.8rem !important;
+    }
+  
+    .homeBakeryButton {
+      top: 360px !important;
+      min-width: 230px !important;
+      padding: 13px 22px !important;
+      font-size: 0.92rem !important;
+    }
+  
+    .homeBakeryWindow {
+      bottom: 62px !important;
+      width: 280px !important;
+      max-width: 76% !important;
+    }
+  }

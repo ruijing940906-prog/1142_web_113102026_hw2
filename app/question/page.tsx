@@ -12,7 +12,7 @@ export default function QuestionPage() {
   const previousQuestion = usePsyDataStore((state) => state.previousQuestion);
 
   const currentQuestion = questions[questionIndex];
-  const progressPercent = (questionIndex / questions.length) * 100;
+  const progressPercent = ((questionIndex + 1) / questions.length) * 100;
 
   function handleAnswer(answer: { label: string; text: string; type: string }) {
     answerQuestion(answer);
@@ -39,23 +39,26 @@ export default function QuestionPage() {
   return (
     <main className="quiz-page">
       <section className="app-shell">
-      <div className="progress-text">
-        <div className="progress-left">
-          <span>
-            Q{questionIndex + 1} / {questions.length}
-          </span>
+        <div className="progress-area">
+          <div className="progress-text">
+            <div className="progress-left">
+              <span>
+                Q{questionIndex + 1} / {questions.length}
+              </span>
 
-          <button
-  className={`top-back-button ${questionIndex === 0 ? "is-hidden" : ""}`}
-  onClick={handlePrevious}
-  disabled={questionIndex === 0}
->
-  返回上一題
-</button>
-        </div>
+              <button
+                className={`top-back-button ${
+                  questionIndex === 0 ? "is-hidden" : ""
+                }`}
+                onClick={handlePrevious}
+                disabled={questionIndex === 0}
+              >
+                返回上一題
+              </button>
+            </div>
 
-        <span>發酵進度</span>
-      </div>
+            <span>發酵進度</span>
+          </div>
 
           <div className="progress-bar">
             <div
@@ -63,7 +66,7 @@ export default function QuestionPage() {
               style={{ width: `${progressPercent}%` }}
             ></div>
           </div>
-       
+        </div>
 
         <div className="quiz-content">
           <div className="question-card">
@@ -101,8 +104,6 @@ export default function QuestionPage() {
             )}
           </div>
         </div>
-
-        
       </section>
     </main>
   );

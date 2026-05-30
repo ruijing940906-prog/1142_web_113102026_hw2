@@ -4578,3 +4578,165 @@ main,
       max-width: 76% !important;
     }
   }
+
+  .entrance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cover-kicker {
+    margin-bottom: 18px;
+  }
+  
+  .main-title {
+    margin: 0 0 32px;
+  }
+  
+  .main-button {
+    margin-bottom: 70px;
+  }
+  .main-window-img {
+    width: min(52%, 520px);
+    height: auto;
+    display: block;
+  
+    margin-top: 70px;
+  
+    animation: windowFloat 3s ease-in-out infinite;
+  }
+  
+  @keyframes windowFloat {
+    0% {
+      transform: translateY(0);
+    }
+  
+    50% {
+      transform: translateY(-8px);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .entrance-container {
+      justify-content: center;
+    }
+  
+    .main-title {
+      font-size: 64px;
+      margin-bottom: 28px;
+    }
+  
+    .main-button {
+      margin-bottom: 80px;
+    }
+  
+    .main-window-img {
+      width: 88%;
+    }
+  }
+
+  .entrance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    overflow: hidden;
+  }
+  
+  /* 強制順序 */
+  .cover-kicker {
+    order: 1;
+  }
+  
+  .main-title {
+    order: 2;
+  }
+  
+  .main-button {
+    order: 3;
+  }
+  
+  .main-window-img {
+    order: 4;
+  
+    width: min(48%, 480px);
+    height: auto;
+    display: block;
+  
+    margin-top: 5px;
+  
+    animation: windowFloat 3s ease-in-out infinite;
+  }
+  
+  @keyframes windowFloat {
+    0% {
+      transform: translateY(0);
+    }
+  
+    50% {
+      transform: translateY(-8px);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .entrance-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 文字不要被之前的設定推上去 */
+  .cover-kicker,
+  .main-title,
+  .main-button {
+    position: relative;
+    z-index: 2;
+    transform: none !important;
+    order: unset !important;
+  }
+  
+  /* 把整組文字往下拉一點 */
+  .cover-kicker {
+    margin-top: 0 !important;
+  }
+  
+  .main-title {
+    margin-top: 18px !important;
+    margin-bottom: 36px !important;
+  }
+  
+  .main-button {
+    margin-bottom: 0 !important;
+  }
+
+  .cover-kicker {
+    margin-top: 80px !important;
+  }
+
+  .main-window-img {
+    width: min(52%, 520px);
+    height: 170px;
+    object-fit: contain;
+    object-position: center bottom;
+  
+    margin-top: 30px;
+  
+    display: block;
+    animation: windowFloat 3s ease-in-out infinite;
+  }
